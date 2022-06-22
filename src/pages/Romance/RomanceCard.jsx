@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 
 
 
-export const RomanceCard=({name})=>{
+export const RomanceCard=({name,image,rating})=>{
     const property = {
-      imageUrl: 'https://bit.ly/2Z4KKcF',
+      imageUrl: 'https://www.bookgeeks.in/wp-content/uploads/2020/05/Will-You-Still-Love-Me-Ravinder-Singh.jpg',
       imageAlt: 'Rear view of modern home with pool',
       beds: 3,
       baths: 2,
@@ -19,7 +19,7 @@ export const RomanceCard=({name})=>{
   
     return (
       <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-        <Image src={property.imageUrl} alt={property.imageAlt} />
+        <Image src={image} alt={property.imageAlt} />
   
         <Box p='6'>
           <Box display='flex' alignItems='baseline'>
@@ -62,12 +62,12 @@ export const RomanceCard=({name})=>{
               .map((_, i) => (
                 <StarIcon
                   key={i}
-                  color={i < property.rating ? 'teal.500' : 'gray.300'}
+                  color={i < rating ? 'teal.500' : 'gray.300'}
                 />
               ))}
-            <Box as='span' ml='2' color='gray.600' fontSize='sm'>
+            {/* <Box as='span' ml='2' color='gray.600' fontSize='sm'>
               {property.reviewCount} reviews
-            </Box>
+            </Box> */}
           </Box>
         </Box>
       </Box>

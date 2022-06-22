@@ -1,54 +1,45 @@
-
-
 {
-    "mock":[{"id":1,"first_name":"Nevsa"},
-        {"id":2,"first_name":"Garrek"},
-        {"id":3,"first_name":"Dimitri"},
-        {"id":4,"first_name":"Sybila"},
-        {"id":5,"first_name":"Mitzi"},
-        {"id":6,"first_name":"Jermaine"},
-        {"id":7,"first_name":"Natasha"},
-        {"id":8,"first_name":"Pascale"},
-        {"id":9,"first_name":"Christa"},
-        {"id":10,"first_name":"Alistair"},
-        {"id":11,"first_name":"Virgina"},
-        {"id":12,"first_name":"Anderea"},
-        {"id":13,"first_name":"Mabel"},
-        {"id":14,"first_name":"Lianne"},
-        {"id":15,"first_name":"Catriona"},
-        {"id":16,"first_name":"Clovis"},
-        {"id":17,"first_name":"Phillipp"},
-        {"id":18,"first_name":"Deborah"},
-        {"id":19,"first_name":"Cecilio"},
-        {"id":20,"first_name":"Chloe"},
-        {"id":21,"first_name":"Easter"},
-        {"id":22,"first_name":"Kean"},
-        {"id":23,"first_name":"Alaric"},
-        {"id":24,"first_name":"Devlin"},
-        {"id":25,"first_name":"Stepha"},
-        {"id":26,"first_name":"Puff"},
-        {"id":27,"first_name":"Katie"},
-        {"id":28,"first_name":"Saxon"},
-        {"id":29,"first_name":"Catharina"},
-        {"id":30,"first_name":"Galvin"},
-        {"id":31,"first_name":"Gilli"},
-        {"id":32,"first_name":"Julio"},
-        {"id":33,"first_name":"Ceil"},
-        {"id":34,"first_name":"Adi"},
-        {"id":35,"first_name":"Georgetta"},
-        {"id":36,"first_name":"Daveta"},
-        {"id":37,"first_name":"Domingo"},
-        {"id":38,"first_name":"Artie"},
-        {"id":39,"first_name":"Charyl"},
-        {"id":40,"first_name":"Cecilius"},
-        {"id":41,"first_name":"Helenka"},
-        {"id":42,"first_name":"Mickey"},
-        {"id":43,"first_name":"Marlo"},
-        {"id":44,"first_name":"Darline"},
-        {"id":45,"first_name":"Filippo"},
-        {"id":46,"first_name":"Rebecka"},
-        {"id":47,"first_name":"Solomon"},
-        {"id":48,"first_name":"Nelly"},
-        {"id":49,"first_name":"Portia"},
-        {"id":50,"first_name":"Dayna"}]
-}
+    "romance": [
+      {
+        "image": "https://covers.zlibcdn2.com/covers299/books/35/2e/a0/352ea020f6b02cbdb1f7198b1ffd8436.jpg",
+        "name": "Regretting You",
+        "rate": "5",
+        "des": "Morgan Grant and her sixteen-year-old daughter, Clara, would like nothing more than to be nothing alike.  Morgan is determined to prevent her daughter from making the same mistakes she did. By getting pregnant and married way too young, Morgan put her own dreams on hold. Clara doesn't want to follow in her mother's footsteps. Her predictable mother doesn't have a spontaneous bone in her body.  With warring personalities and conflicting goals, Morgan and Clara find it increasingly difficult to coexist. The only person who can bring peace to the household is Chris--Morgan's husband, Clara's father, and the family anchor. But that peace is shattered when Chris is involved in a tragic and questionable accident. The heartbreaking and long-lasting consequences will reach far beyond just Morgan and Clara.  While struggling to rebuild everything that crashed around them, Morgan finds comfort in the last person she expects to, and Clara turns to the one boy she's been forbidden to see. With each passing day, new secrets, resentment, and misunderstandings make mother and daughter fall further apart. So far apart, it might be impossible for them to ever fall back together.",
+        "download": "https://1lib.in/dl/5306242/2239ef",
+        "id": 1
+      },
+      {
+        "name": "Wish I Could Tell You",
+        "image": "https://covers.zlibcdn2.com/covers299/books/a9/b8/9b/a9b89b3cf7cada3989bb8cc7aba69be8.jpg",
+        "rate": "5",
+        "des": "Can you find yourself after you have lost that special someone?  A disillusioned and heartbroken Anusha finds herself in the small world of WeDonate.com. Struggling to cope with her feelings and the job of raising money for charity, she reluctantly searches for a worthwhile cause to support. For Ananth, who has been on the opposite side, no life is less worthy, no cause too small to support. Behind them are teams for whom going to extraordinary lengths to save lives is more than a full-time occupation. In front of them is the virtual world of social media-watching, interacting, judging, making choices, and sometimes, saving lives. From the virtual to the real, their lives and that of their families, are entangled in a way that moving together is the only solution. They can't escape each other. In this world of complicated relationships, should love be such a difficult ride?",
+        "download": "https://1lib.in/dl/16644800/446169",
+        "id": 2
+      },
+      {
+        "name": "The One You Cannot Have – Preeti Shenoy",
+        "download": "https://1lib.in/dl/4208906/994bf4",
+        "image": "https://www.bookgeeks.in/wp-content/uploads/2017/04/the-one-you-cannot-have.jpg",
+        "rate": "5",
+        "des": "This book handles the delicate subject of love failure and depression and puts a different spin to things. It gives us a message that if the situations are handled in a more matured way all these lives can be saved.",
+        "id": 3
+      },
+      {
+        "name": "You Are the Best Wife – Ajay K. Pandey",
+        "image": "https://www.bookgeeks.in/wp-content/uploads/2017/04/you-are-the-best-wife-by-ajay-k-pandey.jpg",
+        "rate": "5",
+        "des": "Ajay believes in living for himself; Bhavna teaches him to live for others. Ajay is a planner for life; Bhavna makes him live in every moment. You are the Best Wife is a story of two people with contradictory ideologies who fall in love. It changes them for good. It changes the way they look at the world and the way the world looks at them. Until destiny reveals its plans. This is a true inspiring story of the author and his struggle with life, after his beloved wife left him halfway through their journey. But her last words, 'you are the best husband' gave him the strength to live on, and fulfil his promise of love. Told with frankness and doses of humor, this heartwarming tale of a boy and a girl who never gave up on their love in face of adversities, ends on a bittersweet and poignant note as Ajay comes to terms with the biggest lesson life has to offer.",
+        "download": "https://1lib.in/dl/5286648/717a8a",
+        "id": 4
+      },
+      {
+        "image": "https://covers.zlibcdn2.com/covers299/books/3e/d5/1b/3ed51b1b5f64324df17f9aa1201e1e25.jpg",
+        "name": "Baaz",
+        "rate": "5",
+        "des": "Ishaan Fauzdaar is a young and charismatic Air Force Officer. He is known as Shaanu to his near and dear ones and as Baaz to his colleagues and friends.  Tehmina Dadyseth is an independent, strong-willed and highly opinionated girl. Baaz is their story. Set in 1971, against the backdrop of the India-Pakistan war, this book has an excellent plot and lovable characters.",
+        "download": "https://1lib.in/dl/19119798/06dd72",
+        "id": 5
+      }
+     
+    ]
+  }

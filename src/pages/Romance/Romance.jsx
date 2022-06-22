@@ -13,7 +13,7 @@ export const Romance=(()=>{
     const [data,setData]=useState([])
     useEffect(()=>{
         dispatch(dataAddRequest())
-        axios.get('http://localhost:8080/mock').then((res)=>{
+        axios.get('http://localhost:8080/romance').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -36,7 +36,8 @@ export const Romance=(()=>{
     const loader=useSelector(state=>state?.loading)
    
     return <div>
-        {loader==true?<RomanceLoader/>:<div>
+        {loader==true?<RomanceLoader/>:<div >
+            <div id="header-pos" >  
         <Heading>Choose your book</Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
             <div style={{display:"flex"}}>
@@ -45,10 +46,11 @@ export const Romance=(()=>{
             </div>
            
         </Stack>
+        </div>
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.map((e)=>{
             
-            return <Stack marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.first_name} /> </Stack>
+            return <Stack marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rating} /> </Stack>
         })}
         </div>
       
