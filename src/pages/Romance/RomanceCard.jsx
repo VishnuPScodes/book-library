@@ -1,10 +1,11 @@
 import {Box,Image,Badge} from '@chakra-ui/react'
+import { StarIcon } from '@chakra-ui/icons'
 
 
 
 
 
-export const RomanceCard=()=>{
+export const RomanceCard=({name})=>{
     const property = {
       imageUrl: 'https://bit.ly/2Z4KKcF',
       imageAlt: 'Rear view of modern home with pool',
@@ -22,9 +23,9 @@ export const RomanceCard=()=>{
   
         <Box p='6'>
           <Box display='flex' alignItems='baseline'>
-            <Badge borderRadius='full' px='2' colorScheme='teal'>
+            {/* <Badge borderRadius='full' px='2' colorScheme='teal'>
               New
-            </Badge>
+            </Badge> */}
             <Box
               color='gray.500'
               fontWeight='semibold'
@@ -33,7 +34,7 @@ export const RomanceCard=()=>{
               textTransform='uppercase'
               ml='2'
             >
-              {property.beds} beds &bull; {property.baths} baths
+            
             </Box>
           </Box>
   
@@ -44,16 +45,16 @@ export const RomanceCard=()=>{
             lineHeight='tight'
             noOfLines={1}
           >
-            {property.title}
+            {name}
           </Box>
   
-          <Box>
-            {property.formattedPrice}
+          {/* <Box>
+           
             <Box as='span' color='gray.600' fontSize='sm'>
               / wk
             </Box>
           </Box>
-  
+   */}
           <Box display='flex' mt='2' alignItems='center'>
             {Array(5)
               .fill('')
@@ -71,3 +72,6 @@ export const RomanceCard=()=>{
       </Box>
     )
   }
+
+
+ 
