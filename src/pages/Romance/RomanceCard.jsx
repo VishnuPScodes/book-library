@@ -1,6 +1,6 @@
 import {Box,Image,Badge} from '@chakra-ui/react'
 import { StarIcon } from '@chakra-ui/icons'
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -37,7 +37,7 @@ export const RomanceCard=({name})=>{
             
             </Box>
           </Box>
-  
+      
           <Box
             mt='1'
             fontWeight='semibold'
@@ -47,6 +47,7 @@ export const RomanceCard=({name})=>{
           >
             {name}
           </Box>
+         
   
           {/* <Box>
            
