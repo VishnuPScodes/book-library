@@ -16,10 +16,17 @@ import {
     List,
     ListItem,
   } from '@chakra-ui/react';
+import axios from 'axios';
+import { useEffect } from 'react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
   import { MdLocalShipping } from 'react-icons/md';
+import { useParams } from 'react-router-dom';
   
   export const RomanceBookDetails=()=> {
+    const {id}=useParams()
+    useEffect(()=>{
+        axios.get(`https://books-api-bcknd.herokuapp.com/Romance/${id}`)
+    },[])
     return (
       <Container maxW={'7xl'}>
         <SimpleGrid
