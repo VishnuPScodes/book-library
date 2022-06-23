@@ -17,15 +17,25 @@ import {
     ListItem,
   } from '@chakra-ui/react';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
   import { MdLocalShipping } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
   
   export const RomanceBookDetails=()=> {
+    const [singleData,setSingleData]=useState([])
     const {id}=useParams()
+    const dispatch=useDispatch()
     useEffect(()=>{
-        axios.get(`https://books-api-bcknd.herokuapp.com/Romance/${id}`)
+        dispatch(dataAddRequest())
+        axios.get(`https://books-api-bcknd.herokuapp.com/Romance/${id}`).then((res)=>{
+              setSingleData(res.data)
+              dispatch(dataAddSuccess())
+        }).catch(()=>{
+            dispatch(dataAddFailure())
+        })
     },[])
     return (
       <Container maxW={'7xl'}>
@@ -36,9 +46,9 @@ import { useParams } from 'react-router-dom';
           <Flex>
             <Image
               rounded={'md'}
-              alt={'product image'}
+              alt={'books image'}
               src={
-                'https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080'
+                singleData.image
               }
               fit={'cover'}
               align={'center'}
