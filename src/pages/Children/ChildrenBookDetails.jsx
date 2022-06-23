@@ -102,7 +102,7 @@ import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/acti
            
               </Box>
             </Stack>
-            <a href={'https://drive.google.com/file/d/19hNHtxDzjiui7COZqA2IRLc22j3w4vUA/view?usp=sharing'} download>   
+            <a href={singleData.download} download>   
             <Button
               rounded={'none'}
               w={'full'}
