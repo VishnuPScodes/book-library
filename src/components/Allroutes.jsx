@@ -14,7 +14,7 @@ export const Allroutes=(()=>{
     <Route  path="/Romance" element={<Romance/>}  />
     <Route  path="/RomanceCard" element={<RomanceCard/>}  />
     <Route  path="/RomanceLoader" element={<RomanceLoader/>}  />
-    <Route  path="/RomanceBookDetails" element={<RomanceBookDetails/>}/>
+    <Route  path="/RomanceBookDetails/:id" element={<RomanceBookDetails/>}/>
     
 </Routes>
 </div>

@@ -8,6 +8,7 @@ import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
+import { Navigate, useNavigate } from "react-router-dom"
 export const Romance=(()=>{
     const dispatch=useDispatch()
     const [data,setData]=useState([])
@@ -33,7 +34,9 @@ export const Romance=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
     })
+    const navigate=useNavigate()
     const loader=useSelector(state=>state?.loading)
+   
    
     return <div>
         {loader==true?<RomanceLoader/>:<div >
@@ -50,7 +53,9 @@ export const Romance=(()=>{
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.map((e)=>{
             
-            return <Stack marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rating} /> </Stack>
+            return <Stack onClick={(()=>{
+                navigate(`/RomanceBookDetails/${e.id}`)
+            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rating} /> </Stack>
         })}
         </div>
       
