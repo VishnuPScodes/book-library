@@ -8,6 +8,9 @@ export const Home=(()=>{
     const handleRomance=(()=>{
         navigate('/Romance')
     })
+    const handleChildren=(()=>{
+        navigate('/Children')
+    })
     return <div>
         <Heading>Choose Your Favorite Section</Heading>
 

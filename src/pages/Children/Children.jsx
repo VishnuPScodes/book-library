@@ -1,6 +1,6 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
-import '../Romance/children.css'
+import '../Children/children.css'
 import { Box ,Image, Badge, } from '@chakra-ui/react'
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -9,7 +9,7 @@ import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from "../../redux/action"
 import { ChildrenLoader } from "./ChildrenLoader"
 import { Navigate, useNavigate } from "react-router-dom"
-export const Romance=(()=>{
+export const Children=(()=>{
     const dispatch=useDispatch()
     const [data,setData]=useState([])
     useEffect(()=>{
