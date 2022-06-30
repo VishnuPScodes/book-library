@@ -14,7 +14,7 @@ export const Romance=(()=>{
     const [data,setData]=useState([])
     useEffect(()=>{
         dispatch(dataAddRequest())
-        axios.get('https://books-api-bcknd.herokuapp.com/romance').then((res)=>{
+        axios.get('http://localhost:8080/romance').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
