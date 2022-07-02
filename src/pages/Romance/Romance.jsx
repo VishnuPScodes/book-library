@@ -10,6 +10,7 @@ import { dataAddFailure, dataAddRequest, dataAddSuccess } from "../../redux/acti
 import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate } from "react-router-dom"
 export const Romance=(()=>{
+    const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
     useEffect(()=>{
@@ -23,12 +24,15 @@ export const Romance=(()=>{
             dispatch(dataAddFailure())
         })
     },[])
-    // const loader=useSelector(state=>state.loading)
+    const searchButton=(()=>{
+        axios.get("http://localhost:8080/romance?q=")
+    })
     
-    const handleInput=(()=>{
+    const handleInput=((e)=>{
         console.log('yes')
         let romanceBtn=document.getElementById('submit-romance')
         romanceBtn.style.display="block"
+        setSearch()
     })
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');

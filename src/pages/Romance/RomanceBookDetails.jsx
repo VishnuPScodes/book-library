@@ -32,7 +32,7 @@ import { DetailsLoader } from './DetailsLoader';
     const loader=useSelector(state=>state.loading)
     useEffect(()=>{
         dispatch(dataAddRequest())
-        axios.get(`https://books-api-bcknd.herokuapp.com/Romance/${id}`).then((res)=>{
+        axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{
               setSingleData(res.data)
               dispatch(dataAddSuccess())
         }).catch(()=>{
@@ -87,13 +87,10 @@ import { DetailsLoader } from './DetailsLoader';
               color={useColorModeValue('gray.500', 'gray.400')}
               fontSize={'2xl'}
               fontWeight={'300'}>
-             Ajay K Pandey
+             {singleData.name}
             </Text>
             <Text fontSize={'lg'}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-              aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-              maxime modi nam officiis porro, quae, quisquam quos
-              reprehenderit velit? Natus, totam.
+              {singleData.des}.
             </Text>
           </VStack>
           <Box>
