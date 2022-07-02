@@ -30,6 +30,7 @@ import { DetailsLoader } from './DetailsLoader';
     const {id}=useParams()
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.loading)
+   
     useEffect(()=>{
         dispatch(dataAddRequest())
         axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{

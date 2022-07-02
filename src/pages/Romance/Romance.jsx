@@ -10,6 +10,7 @@ import { dataAddFailure, dataAddRequest, dataAddSuccess } from "../../redux/acti
 import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate } from "react-router-dom"
 export const Romance=(()=>{
+    const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
@@ -24,24 +25,28 @@ export const Romance=(()=>{
             dispatch(dataAddFailure())
         })
     },[])
-    const searchButton=(()=>{
-        axios.get("http://localhost:8080/romance?q=")
-    })
     
     const handleInput=((e)=>{
         console.log('yes')
         let romanceBtn=document.getElementById('submit-romance')
         romanceBtn.style.display="block"
-        setSearch()
+        setSearch(e.target.value);
     })
+
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
+        axios.get(`http://localhost:8080/romance?q=${search}`).then((res)=>{
+            setData(res.data)
+        }).then(()=>{
+            setClick(true)
+        })
+       
     })
     const navigate=useNavigate()
     const loader=useSelector(state=>state?.loading)
-   
-   
+    const bookSearch=useSelector(state=>state?.booksearch);
+    
     return <div>
         {loader==true?<RomanceLoader/>:<div >
             <div id="header-pos" >  
@@ -50,9 +55,11 @@ export const Romance=(()=>{
             <div style={{display:"flex"}}>
             <Input id="romance-input" onChange={handleInput}  placeholder="Serach your book"  />
             <Button id="submit-romance" onClick={handleSubmit}>Submit</Button>
-            </div>
            
+            </div>
+           <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
         </Stack>
+        
         </div>
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.map((e)=>{

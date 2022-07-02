@@ -4,7 +4,8 @@ import { dataActions } from "./action"
 
 const initState={
     loading:false,
-    error:true
+    error:true,
+    booksearch:false
 }
 
 export const dataReducer=((state=initState,action)=>{
@@ -27,6 +28,29 @@ export const dataReducer=((state=initState,action)=>{
             return {
                ...state,
                loading:false,
+               error:false
+            }
+        }
+
+
+        case dataActions.BOOK_SEARCH_FAILURE :{
+            return {
+               ...state,
+               booksearch:false,
+               error:true
+            }
+        }
+        case dataActions.BOOK_SEARCH_REQUEST:{
+            return {
+               ...state,
+               booksearch:true,
+               error:false
+            }
+        }
+        case dataActions.BOOK_SEARCH_SUCCESS :{
+            return {
+               ...state,
+               booksearch:false,
                error:false
             }
         }
