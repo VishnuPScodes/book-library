@@ -6,7 +6,10 @@ export const dataActions={
 
     BOOK_SEARCH_REQUEST:"BOOK_SEARCH_REQUEST",
     BOOK_SEARCH_SUCCESS:"BOOK_SEARCH_SUCCESS",
-    BOOK_SEARCH_FAILURE:"BOOK_SEARCH_FAILURE"
+    BOOK_SEARCH_FAILURE:"BOOK_SEARCH_FAILURE",
+
+    NIGHT_MODE_ON:"NIGHT_MODE_ON",
+    LIGHT_MODE_ON:"LIGHT_MODE_ON"
 
 }
 
@@ -46,3 +49,18 @@ export const booksearchFailure=(()=>{
         type:dataActions.BOOK_SEARCH_FAILURE
     } 
 })
+
+
+
+
+export const nightModeOn=(()=>{
+    return {
+        type:dataActions.NIGHT_MODE_ON
+    } 
+})
+export const lightModeOn=(()=>{
+    return {
+        type:dataActions.LIGHT_MODE_ON
+    } 
+})
+

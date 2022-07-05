@@ -5,7 +5,8 @@ import { dataActions } from "./action"
 const initState={
     loading:false,
     error:true,
-    booksearch:false
+    booksearch:false,
+    nightmode:false
 }
 
 export const dataReducer=((state=initState,action)=>{
@@ -51,6 +52,22 @@ export const dataReducer=((state=initState,action)=>{
             return {
                ...state,
                booksearch:false,
+               error:false
+            }
+        }
+
+
+        case dataActions.NIGHT_MODE_ON:{
+            return {
+               ...state,
+               nightmode:true,
+               error:false
+            }
+        }
+        case dataActions.LIGHT_MODE_ON :{
+            return {
+               ...state,
+               nightmode:false,
                error:false
             }
         }

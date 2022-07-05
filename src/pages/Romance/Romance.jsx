@@ -6,10 +6,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
-import { dataAddFailure, dataAddRequest, dataAddSuccess } from "../../redux/action"
+import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate } from "react-router-dom"
-import {ChevronDownIcon} from '@chakra-ui/icons'
+import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
+
 import {
     Menu,
     MenuButton,
@@ -21,10 +22,23 @@ import {
     MenuDivider,
   } from '@chakra-ui/react'
 export const Romance=(()=>{
+    const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
+     // all redux states
+
+     const navigate=useNavigate()
+     const loader=useSelector(state=>state?.loading)
+     const bookSearch=useSelector(state=>state?.booksearch);
+     const nightmode=useSelector(state=>state?.nightmode)
+
+
+    // Use effect to change the theme
+    
+
+
     useEffect(()=>{
         dispatch(dataAddRequest())
         axios.get('http://localhost:8080/romance').then((res)=>{
@@ -54,14 +68,21 @@ export const Romance=(()=>{
         })
        
     })
-    const navigate=useNavigate()
-    const loader=useSelector(state=>state?.loading)
-    const bookSearch=useSelector(state=>state?.booksearch);
-    
-    return <div>
+   
+    return <div  >
         {loader==true?<RomanceLoader/>:<div >
             <div id="header-pos" >  
-        <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <div><Button>Next</Button></div>  </Heading>
+        <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <div><Button onClick={(()=>{
+            setCount(count+1);
+            if(count==0){
+               dispatch(nightModeOn())
+            }
+            else{
+                dispatch(lightModeOn())
+                setCount(0)
+            }
+            
+        })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></div>  </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
             <div style={{display:"flex"}}>
             <Input id="romance-input" onChange={handleInput}  placeholder="Serach your book"  />
