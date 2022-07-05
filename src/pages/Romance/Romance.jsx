@@ -9,6 +9,17 @@ import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate } from "react-router-dom"
+import {ChevronDownIcon} from '@chakra-ui/icons'
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuItemOption,
+    MenuGroup,
+    MenuOptionGroup,
+    MenuDivider,
+  } from '@chakra-ui/react'
 export const Romance=(()=>{
     const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
@@ -50,7 +61,7 @@ export const Romance=(()=>{
     return <div>
         {loader==true?<RomanceLoader/>:<div >
             <div id="header-pos" >  
-        <Heading>Choose your book</Heading>
+        <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <div><Button>Next</Button></div>  </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
             <div style={{display:"flex"}}>
             <Input id="romance-input" onChange={handleInput}  placeholder="Serach your book"  />
@@ -61,6 +72,22 @@ export const Romance=(()=>{
         </Stack>
         
         </div>
+        
+        <Stack marginRight={{lg:"90%"}}  >   
+        <Menu >
+  <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+    Categories
+  </MenuButton>
+  <MenuList backgroundColor="red">
+    <MenuItem>Download</MenuItem>
+    <MenuItem>Create a Copy</MenuItem>
+    <MenuItem>Mark as Draft</MenuItem>
+    <MenuItem>Delete</MenuItem>
+    <MenuItem>Attend a Workshop</MenuItem>
+  </MenuList>
+</Menu>
+</Stack>  
+        
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.map((e)=>{
             
