@@ -24,13 +24,14 @@ import { useDispatch ,useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
+import { Div } from './styled/Div';
   
   export const RomanceBookDetails=()=> {
     const [singleData,setSingleData]=useState([])
     const {id}=useParams()
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.loading)
-   
+    const nightmode=useSelector(state=>state.nightmode)
     useEffect(()=>{
         dispatch(dataAddRequest())
         axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{
@@ -41,12 +42,12 @@ import { DetailsLoader } from './DetailsLoader';
         })
     },[])
     
-    return <div> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
+    return <Div theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
     <SimpleGrid
       columns={{ base: 1, lg: 2 }}
       spacing={{ base: 8, md: 10 }}
       py={{ base: 18, md: 24 }}>
-      <Flex>
+      <Flex> 
         <Image
           rounded={'md'}
           alt={'books image'}
@@ -125,5 +126,5 @@ import { DetailsLoader } from './DetailsLoader';
     </SimpleGrid>
   </Container>}
      
-      </div>
+      </Div>
   }

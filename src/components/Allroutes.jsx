@@ -8,6 +8,7 @@ import { RomanceBookDetails } from "../pages/Romance/RomanceBookDetails"
 import { RomanceCard } from "../pages/Romance/RomanceCard"
 import { RomanceLoader } from "../pages/Romance/RomanceLoader"
 import { Children } from "../pages/Children/Children"
+import { ItemnotFound } from "./ItemnotFound"
 
 export const Allroutes=(()=>{
     return <div>
@@ -22,6 +23,7 @@ export const Allroutes=(()=>{
     <Route  path="/ChildrenCard" element={<ChildrenCard/>}/>
     <Route  path="/ChildrenLoader" element={<ChildrenLoader/>}/>
     <Route  path="/RomanceBookDetails/:id" element={<RomanceBookDetails/>}/>
+    <Route  path="/ItemnotFound" element={<ItemnotFound/>}/>
     
 </Routes>
 </div>

@@ -18,7 +18,7 @@ export const RomanceCard=({name,image,rating})=>{
     }
   
     return (
-      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+      <Box  maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
         <Image src={image} alt={property.imageAlt} />
   
         <Box p='6'>

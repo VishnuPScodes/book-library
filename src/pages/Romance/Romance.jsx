@@ -21,6 +21,7 @@ import {
     MenuOptionGroup,
     MenuDivider,
   } from '@chakra-ui/react'
+import { Div, MenuButtons,Div2 } from "./styled/Div"
 export const Romance=(()=>{
     const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
@@ -63,16 +64,20 @@ export const Romance=(()=>{
         romanceBtn.style.display="none"
         axios.get(`http://localhost:8080/romance?q=${search}`).then((res)=>{
             setData(res.data)
+            
         }).then(()=>{
             setClick(true)
         })
-       
+        if(data.length==0){
+            navigate('/ItemnotFound')
+        }
     })
+    
    
-    return <div  >
+    return <Div theme={nightmode} >   
         {loader==true?<RomanceLoader/>:<div >
             <div id="header-pos" >  
-        <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <div><Button onClick={(()=>{
+        <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <Div2 theme={nightmode}><Button onClick={(()=>{
             setCount(count+1);
             if(count==0){
                dispatch(nightModeOn())
@@ -82,7 +87,7 @@ export const Romance=(()=>{
                 setCount(0)
             }
             
-        })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></div>  </Heading>
+        })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></Div2>  </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
             <div style={{display:"flex"}}>
             <Input id="romance-input" onChange={handleInput}  placeholder="Serach your book"  />
@@ -96,9 +101,12 @@ export const Romance=(()=>{
         
         <Stack marginRight={{lg:"90%"}}  >   
         <Menu >
+            <MenuButtons theme={nightmode}>  
   <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
     Categories
-  </MenuButton>
+  </MenuButton> 
+  </MenuButtons>
+  <MenuButtons> 
   <MenuList backgroundColor="red">
     <MenuItem>Download</MenuItem>
     <MenuItem>Create a Copy</MenuItem>
@@ -106,8 +114,10 @@ export const Romance=(()=>{
     <MenuItem>Delete</MenuItem>
     <MenuItem>Attend a Workshop</MenuItem>
   </MenuList>
+   </MenuButtons>
 </Menu>
 </Stack>  
+  
         
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.map((e)=>{
@@ -117,8 +127,11 @@ export const Romance=(()=>{
             })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rating} /> </Stack>
         })}
         </div>
-      
+       
     
-    </div>}
-    </div>
+    </div>}  
+    
+    </Div>
+    
+    
 })
