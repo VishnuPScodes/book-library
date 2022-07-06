@@ -120,7 +120,7 @@ export const Romance=(()=>{
   
         
         <div style={{display:"flex",flexWrap:"wrap"}}>
-        {data.map((e)=>{
+        {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
             return <Stack onClick={(()=>{
                 navigate(`/RomanceBookDetails/${e.id}`)
