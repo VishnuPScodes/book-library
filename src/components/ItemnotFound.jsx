@@ -2,7 +2,7 @@
 import './item.css'
 import { Heading } from "@chakra-ui/react"
 import { useDisclosure } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
     FormControl,
@@ -17,10 +17,20 @@ import {
     ModalBody,
     ModalCloseButton,
   } from '@chakra-ui/react'
+  import { SelectField,Select } from '@chakra-ui/react'
 
 export const ItemnotFound=(()=>{
+    const [data,setData]=useState([])
     const { isOpen, onOpen, onClose } = useDisclosure()
-
+  const handleChange=((e)=>{
+    const {id,value}=e.target;
+    setData({...data,
+    [id]:value
+    })
+  })
+  const handleSubmit=(()=>{
+    console.log(data)
+  })
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
     return <div>
@@ -54,18 +64,31 @@ export const ItemnotFound=(()=>{
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder='First name' />
+              <FormLabel>Full name</FormLabel>
+              <Input id='full_name' onChange={handleChange} ref={initialRef} placeholder='Full name' />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder='Last name' />
+              <FormLabel>Book name</FormLabel>
+              <Input id='book_name' onChange={handleChange}  placeholder='Book name' />
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel requiredIndicator={'Required'}>Email id</FormLabel>
+              <Input id='email' onChange={handleChange} required placeholder='Email' />
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel  requiredIndicator={'Required'}>Category</FormLabel>
+              <Select id='category' onChange={handleChange}>
+                <option value="romance">Romance Books</option>
+                <option value="children's">Children's Books</option>
+                <option value="short stories">Short stories</option>
+                <option value="classics">Classics</option>
+              </Select>
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
+            <Button colorScheme='blue' mr={3} onClick={handleSubmit} >
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>
