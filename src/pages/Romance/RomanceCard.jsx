@@ -14,12 +14,12 @@ export const RomanceCard=({name,image,rating})=>{
       title: 'Modern home in city center in the heart of historic Los Angeles',
       formattedPrice: '$1,900.00',
       reviewCount: 34,
-      rating: 4,
+     
     }
   
     return (
-      <Box  maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-        <Image src={image} alt={property.imageAlt} />
+      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+        <Image src={image} height="550px" alt={property.imageAlt} />
   
         <Box p='6'>
           <Box display='flex' alignItems='baseline'>

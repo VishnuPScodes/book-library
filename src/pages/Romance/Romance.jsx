@@ -74,7 +74,7 @@ export const Romance=(()=>{
     })
     
    
-    return <Div theme={nightmode} >   
+    return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<RomanceLoader/>:<div >
             <div id="header-pos" >  
         <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <Div2 theme={nightmode}><Button onClick={(()=>{
@@ -99,7 +99,7 @@ export const Romance=(()=>{
         
         </div>
         
-        <Stack marginRight={{lg:"90%"}}  >   
+        <Stack marginRight={{lg:"85%"}}  >   
         <Menu >
             <MenuButtons theme={nightmode}>  
   <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -124,7 +124,7 @@ export const Romance=(()=>{
             
             return <Stack onClick={(()=>{
                 navigate(`/RomanceBookDetails/${e.id}`)
-            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rating} /> </Stack>
+            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
        

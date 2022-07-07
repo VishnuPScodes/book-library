@@ -42,7 +42,7 @@ import { Div } from './styled/Div';
         })
     },[])
     
-    return <Div theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
+    return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
     <SimpleGrid
       columns={{ base: 1, lg: 2 }}
       spacing={{ base: 8, md: 10 }}
@@ -91,7 +91,7 @@ import { Div } from './styled/Div';
               fontWeight={'300'}>
              {singleData.name}
             </Text>
-            <Text fontSize={'lg'}>
+            <Text id='text-details' fontSize={'lg'}>
               {singleData.des}.
             </Text>
           </VStack>
