@@ -27,11 +27,17 @@ prop.theme==true?"black":""
 
 
 `
+export const Div3=styled.div`
+  color:${(prop)=>
+  prop.theme==true?"black":"red"}
+`
 
 export const Div2=styled.div`
   color:${(prop)=>
   prop.theme==true?"black":""}
 `
+
+
 
 export const MenuButtons=styled.div `
      height: 100%;

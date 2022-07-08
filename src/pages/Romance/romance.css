@@ -1,5 +1,6 @@
 #submit-romance{
     display: none;
+   
 }
 #detailsLoader{
     margin: auto;
@@ -12,4 +13,10 @@
   /* background-image: url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=600');
   background-size: cover;
    */
+}
+#floating-btn-roma{
+  z-index: 1;
+ 
+  
+  
 }

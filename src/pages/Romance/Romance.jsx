@@ -8,8 +8,9 @@ import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
-import { Navigate, useNavigate } from "react-router-dom"
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
+import {ImBooks} from 'react-icons/im'
 
 import {
     Menu,
@@ -21,13 +22,14 @@ import {
     MenuOptionGroup,
     MenuDivider,
   } from '@chakra-ui/react'
-import { Div, MenuButtons,Div2 } from "./styled/Div"
+import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
 export const Romance=(()=>{
     const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
+    let [searchParams,setSearchParams]=useSearchParams();
      // all redux states
 
      const navigate=useNavigate()
@@ -41,6 +43,7 @@ export const Romance=(()=>{
 
 
     useEffect(()=>{
+        setSearchParams({})
         dispatch(dataAddRequest())
         axios.get('http://localhost:8080/romance').then((res)=>{
             setData(res.data)
@@ -62,6 +65,7 @@ export const Romance=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
+        setSearchParams({search:`${search}`})
         axios.get(`http://localhost:8080/romance?q=${search}`).then((res)=>{
             setData(res.data)
             
@@ -99,20 +103,20 @@ export const Romance=(()=>{
         
         </div>
         
-        <Stack marginRight={{lg:"85%"}}  >   
+        <Stack marginRight={{lg:"95%",md:"85%",sm:"85%",base:"85%"}}  >   
         <Menu >
-            <MenuButtons theme={nightmode}>  
-  <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-    Categories
+            <MenuButtons  id="floating-btn-roma" theme={nightmode}>  
+  <MenuButton id="menu" opacity={'.7'} zIndex={'10'} position={'fixed'} width={'60px'} height='60px' borderRadius={'50%'} as={Button} >
+    <Div3 theme={nightmode}> <ImBooks fontSize={'35px'} />  </Div3>
+  
   </MenuButton> 
   </MenuButtons>
   <MenuButtons> 
   <MenuList backgroundColor="red">
-    <MenuItem>Download</MenuItem>
-    <MenuItem>Create a Copy</MenuItem>
-    <MenuItem>Mark as Draft</MenuItem>
-    <MenuItem>Delete</MenuItem>
-    <MenuItem>Attend a Workshop</MenuItem>
+    <MenuItem>Children's Section</MenuItem>
+    <MenuItem>Classic Novels</MenuItem>
+    <MenuItem>Short Stories</MenuItem>
+    
   </MenuList>
    </MenuButtons>
 </Menu>
@@ -127,6 +131,12 @@ export const Romance=(()=>{
             })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
+
+        {/* Footer */}
+
+        <Stack>
+            <Heading color={'black'}  > The End </Heading>
+        </Stack>
        
     
     </div>}  
