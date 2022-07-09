@@ -10,6 +10,8 @@ import { RomanceLoader } from "../pages/Romance/RomanceLoader"
 import { Children } from "../pages/Children/Children"
 import { ItemnotFound } from "./ItemnotFound"
 import { PagenotFound } from "./PagenotFound"
+import { PrivateRoute } from "./PrivateRoute"
+import { Admin } from "./Admin"
 
 export const Allroutes=(()=>{
     return <div>
@@ -26,6 +28,9 @@ export const Allroutes=(()=>{
     <Route  path="/RomanceBookDetails/:id" element={<RomanceBookDetails/>}/>
     <Route  path="/ItemnotFound" element={<ItemnotFound/>}/>
     <Route  path="*" element={<PagenotFound/>}/>
+    <Route  path="/Admin" element={<PrivateRoute>
+        <Admin/>
+    </PrivateRoute>}/>
     
 </Routes>
 </div>

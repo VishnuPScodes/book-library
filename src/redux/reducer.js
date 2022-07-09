@@ -71,5 +71,7 @@ export const dataReducer=((state=initState,action)=>{
                error:false
             }
         }
+        default :
+        return state
     }
 })
