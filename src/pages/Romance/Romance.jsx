@@ -11,6 +11,7 @@ import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
+import Draggable from 'react-draggable';
 
 import {
     Menu,
@@ -102,8 +103,10 @@ export const Romance=(()=>{
         </Stack>
         
         </div>
-        
-        <Stack marginRight={{lg:"95%",md:"85%",sm:"85%",base:"85%"}}  >   
+         
+         {/* Menu button */}
+      
+    <Stack marginRight={{lg:"95%",md:"85%",sm:"85%",base:"85%"}}  >   
         <Menu >
             <MenuButtons  id="floating-btn-roma" theme={nightmode}>  
   <MenuButton id="menu" opacity={'.7'} zIndex={'10'} position={'fixed'} width={'60px'} height='60px' borderRadius={'50%'} as={Button} >
@@ -121,6 +124,12 @@ export const Romance=(()=>{
    </MenuButtons>
 </Menu>
 </Stack>  
+
+
+
+
+
+     
   
         
         <div style={{display:"flex",flexWrap:"wrap"}}>
