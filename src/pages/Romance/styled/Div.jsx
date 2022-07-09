@@ -33,6 +33,7 @@ export const Div3=styled.div`
 `
 
 export const Div2=styled.div`
+  margin-right: 2.5%;
   color:${(prop)=>
   prop.theme==true?"black":""}
 `

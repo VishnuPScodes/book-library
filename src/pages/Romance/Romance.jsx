@@ -2,6 +2,7 @@
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
 import '../Romance/romance.css'
 import { Box ,Image, Badge, } from '@chakra-ui/react'
+import {AiFillHome} from 'react-icons/ai'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { RomanceCard } from "./RomanceCard"
@@ -80,9 +81,11 @@ export const Romance=(()=>{
     
    
     return  <Div id="main-romance" theme={nightmode} >   
-        {loader==true?<RomanceLoader/>:<div >
+        {loader==true?<RomanceLoader/>:<div > 
             <div id="header-pos" >  
-        <Heading display={'flex'} textAlign={'center'}> <div style={{margin:"auto"}}> Choose your book</div> <Div2 theme={nightmode}><Button onClick={(()=>{
+        <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
+            navigate('/')
+        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div> <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);
             if(count==0){
                dispatch(nightModeOn())

@@ -17,3 +17,10 @@
 #romance:hover +#heading-romance{
     display: none;
 }
+#home-box{
+    border: 1px solid black;
+    height: 80px;
+    width: 50%;
+    margin: auto;
+    border-radius: 30px;
+}

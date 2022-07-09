@@ -34,3 +34,7 @@
   margin: auto;
   user-select: none;
 }
+#home-romance:hover{
+  color: red;
+  cursor: pointer;
+}
