@@ -35,9 +35,9 @@ export const Romance=(()=>{
      // all redux states
 
      const navigate=useNavigate()
-     const loader=useSelector(state=>state?.loading)
-     const bookSearch=useSelector(state=>state?.booksearch);
-     const nightmode=useSelector(state=>state?.nightmode)
+     const loader=useSelector(state=>state?.data.loading)
+     const bookSearch=useSelector(state=>state?.data.booksearch);
+     const nightmode=useSelector(state=>state?.data.nightmode)
 
 
     // Use effect to change the theme

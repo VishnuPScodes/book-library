@@ -1,9 +1,14 @@
 
 import './item.css'
-import { Heading } from "@chakra-ui/react"
+import { Heading, Spinner, Stack } from "@chakra-ui/react"
 import { useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
-
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
 import {
     FormControl,
     FormLabel,
@@ -18,10 +23,19 @@ import {
     ModalCloseButton,
   } from '@chakra-ui/react'
   import { SelectField,Select } from '@chakra-ui/react'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../redux/action'
 
 export const ItemnotFound=(()=>{
     const [data,setData]=useState([])
     const { isOpen, onOpen, onClose } = useDisclosure()
+    // Redux 
+    const dispatch=useDispatch();
+    const loading=useSelector(state=>state.data.loading)
+
+
+
   const handleChange=((e)=>{
     const {id,value}=e.target;
     setData({...data,
@@ -29,7 +43,17 @@ export const ItemnotFound=(()=>{
     })
   })
   const handleSubmit=(()=>{
-    console.log(data)
+   
+    dispatch(dataAddRequest());
+    axios.post('http://localhost:8080/admin',data).then(()=>{
+        dispatch(dataAddSuccess())
+    }).then(()=>{
+      alert('Data added successfully')
+    })
+    .catch(()=>{
+      dispatch(dataAddFailure())
+      alert('Sorry unable to submit your request at the moment ,please try later')
+    })
   })
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
@@ -84,12 +108,13 @@ export const ItemnotFound=(()=>{
                 <option value="short stories">Short stories</option>
                 <option value="classics">Classics</option>
               </Select>
+              
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme='blue' mr={3} onClick={handleSubmit} >
-              Save
+              {loading==true?<Spinner/>:"Submit"}
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>

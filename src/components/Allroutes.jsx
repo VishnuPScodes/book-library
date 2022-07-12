@@ -12,6 +12,8 @@ import { ItemnotFound } from "./ItemnotFound"
 import { PagenotFound } from "./PagenotFound"
 import { PrivateRoute } from "./PrivateRoute"
 import { Admin } from "./Admin"
+import { AdminLogin } from "./AdminLogin"
+import { AddItem } from "./AddItem"
 
 export const Allroutes=(()=>{
     return <div>
@@ -28,10 +30,13 @@ export const Allroutes=(()=>{
     <Route  path="/RomanceBookDetails/:id" element={<RomanceBookDetails/>}/>
     <Route  path="/ItemnotFound" element={<ItemnotFound/>}/>
     <Route  path="*" element={<PagenotFound/>}/>
+    <Route  path="/AdminLogin" element={<AdminLogin/>}/>
     <Route  path="/Admin" element={<PrivateRoute>
         <Admin/>
     </PrivateRoute>}/>
-    
+    <Route  path="Additem" element={<PrivateRoute>
+        <AddItem/>
+    </PrivateRoute>}/>
 </Routes>
 </div>
 
