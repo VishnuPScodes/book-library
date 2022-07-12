@@ -1,7 +1,7 @@
 import { Heading } from "@chakra-ui/react"
 import { Div } from "./styled/Div"
 import { useSelector } from "react-redux"
-
+import AnimatedText from 'react-animated-text-content';
 
 
 export const RomanceLoader=(()=>{

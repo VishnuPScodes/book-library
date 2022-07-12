@@ -16,6 +16,7 @@ import {
     List,
     ListItem,
   } from '@chakra-ui/react';
+  
 import axios from 'axios';
 import { useEffect, useState } from 'react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
@@ -30,16 +31,19 @@ import { Div } from './styled/Div';
     const [singleData,setSingleData]=useState([])
     const {id}=useParams()
     const dispatch=useDispatch()
-    const loader=useSelector(state=>state.loading)
+    const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.nightmode)
     useEffect(()=>{
         dispatch(dataAddRequest())
-        axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{
-              setSingleData(res.data)
-              dispatch(dataAddSuccess())
-        }).catch(()=>{
-            dispatch(dataAddFailure())
-        })
+        setTimeout(()=>{
+          axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{
+            setSingleData(res.data)
+            dispatch(dataAddSuccess())
+      }).catch(()=>{
+          dispatch(dataAddFailure())
+      })
+        },1000)
+    
     },[])
     
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
