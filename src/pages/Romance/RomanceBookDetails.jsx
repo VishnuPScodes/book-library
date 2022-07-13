@@ -19,8 +19,8 @@ import {
   
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-  import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-  import { MdLocalShipping } from 'react-icons/md';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
@@ -32,7 +32,7 @@ import { Div } from './styled/Div';
     const {id}=useParams()
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.data.loading)
-    const nightmode=useSelector(state=>state.nightmode)
+    const nightmode=useSelector(state=>state.data.nightmode)
     useEffect(()=>{
         dispatch(dataAddRequest())
         setTimeout(()=>{
@@ -113,8 +113,8 @@ import { Div } from './styled/Div';
           mt={8}
           size={'lg'}
           py={'7'}
-          bg={useColorModeValue('gray.900', 'gray.50')}
-          color={useColorModeValue('white', 'gray.900')}
+          bg={useColorModeValue('red.00', 'red.0')}
+          color={useColorModeValue('white', 'red.00')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',

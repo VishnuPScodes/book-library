@@ -34,7 +34,7 @@ export const Admin=(({name,id,date,category})=>{
     var today = new Date();
 
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-
+    
     return <div>
         <Stack display={'flex'}>  <Heading display={'flex'}>Welcome to admin page</Heading> <Button id="admin-btn">Add new item</Button></Stack>
        
@@ -58,7 +58,7 @@ export const Admin=(({name,id,date,category})=>{
         <Td>{e.id}</Td>
         <Td>{e.book_name}</Td>
         <Td >{e.category}</Td>
-        <Td >{date}</Td>
+        <Td >{e.date}</Td>
         <Td > <div style={{display:"flex"}}> <button style={{border:"1px solid black",backgroundColor:"white"}} onClick={(()=>{
           navigate('/AddItem')
         })} >Add book</button> Or <button onClick={(()=>{

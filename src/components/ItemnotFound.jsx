@@ -1,8 +1,8 @@
 
 import './item.css'
-import { Heading, Spinner, Stack } from "@chakra-ui/react"
+import { Checkbox, Heading, Spinner, Stack } from "@chakra-ui/react"
 import { useDisclosure } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Alert,
   AlertIcon,
@@ -28,12 +28,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../redux/action'
 
 export const ItemnotFound=(()=>{
+  var today = new Date();
+
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     const [data,setData]=useState([])
     const { isOpen, onOpen, onClose } = useDisclosure()
     // Redux 
     const dispatch=useDispatch();
     const loading=useSelector(state=>state.data.loading)
-
+    useEffect(()=>{
+      setData({...data,date})
+    },[])
 
 
   const handleChange=((e)=>{
@@ -108,7 +113,7 @@ export const ItemnotFound=(()=>{
                 <option value="short stories">Short stories</option>
                 <option value="classics">Classics</option>
               </Select>
-              
+              <Checkbox id='date' onChange={handleChange} value={date} >All informations provided above are correct</Checkbox>
             </FormControl>
           </ModalBody>
 
