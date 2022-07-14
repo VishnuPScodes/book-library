@@ -25,7 +25,7 @@ import { useDispatch ,useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
-import { Div } from './styled/Div';
+import { ButtonDet, Div, DivLoader } from './styled/Div';
   
   export const RomanceBookDetails=()=> {
     const [singleData,setSingleData]=useState([])
@@ -122,6 +122,9 @@ import { Div } from './styled/Div';
           }}>
           Download
         </Button>
+       
+        {/* <ButtonDet width={'100%'} height="40px">Download</ButtonDet> */}
+        
         </a>
         <Stack direction="row" alignItems="center" justifyContent={'center'}>          
         </Stack>

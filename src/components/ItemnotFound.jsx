@@ -3,6 +3,7 @@ import './item.css'
 import { Checkbox, Heading, Spinner, Stack } from "@chakra-ui/react"
 import { useDisclosure } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
+import { fadeIn } from 'react-animations'
 import {
   Alert,
   AlertIcon,
@@ -64,7 +65,7 @@ export const ItemnotFound=(()=>{
   const finalRef = React.useRef(null)
     return <div>
         <div>
-            <div style={{margin:"auto"}}>  <Heading>Sorry Book not available</Heading>
+            <div style={{margin:"auto"}}>   <Heading>Sorry Book not available</Heading>
            <img style={{margin:"auto"}} src="https://i.pinimg.com/originals/56/32/c1/5632c13a0be038a4a219200e6dd2335d.jpg" alt="sad_image" /> 
            <div>Want to request a book?</div>
 

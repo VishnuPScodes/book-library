@@ -3,7 +3,7 @@ import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
 import '../Romance/romance.css'
 import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
-import { useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
 import axios from "axios"
 import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
@@ -13,7 +13,9 @@ import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
 import Draggable from 'react-draggable';
+import { motion, useViewportScroll } from "framer-motion"
 
+import {  useScroll } from "framer-motion"
 import {
     Menu,
     MenuButton,
@@ -25,6 +27,7 @@ import {
     MenuDivider,
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
+
 export const Romance=(()=>{
     const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
@@ -32,6 +35,7 @@ export const Romance=(()=>{
     const dispatch=useDispatch()
     const [data,setData]=useState([])
     let [searchParams,setSearchParams]=useSearchParams();
+    const { scrollYProgress } = useScroll();
      // all redux states
 
      const navigate=useNavigate()
@@ -43,7 +47,7 @@ export const Romance=(()=>{
     // Use effect to change the theme
     
 
-
+    
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
@@ -82,6 +86,7 @@ export const Romance=(()=>{
    
     return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<RomanceLoader/>:<div > 
+         
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
             navigate('/')
@@ -95,7 +100,9 @@ export const Romance=(()=>{
                 setCount(0)
             }
             
-        })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></Div2>  </Heading>
+        })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></Div2>
+    
+          </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
             <div style={{display:"flex"}}>
             <Input id="romance-input" onChange={handleInput}  placeholder="Serach your book"  />
@@ -104,8 +111,13 @@ export const Romance=(()=>{
             </div>
            <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
         </Stack>
-        
+        <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
         </div>
+
+
+        {/* circle indicator */}
+      
+
          
          {/* Menu button */}
       
@@ -157,3 +169,13 @@ export const Romance=(()=>{
     
     
 })
+
+// scrolling indicator function
+function Scroll() {
+    const { scrollYProgress } = useScroll();
+    
+    return (
+      <motion.div style={{ scaleX: scrollYProgress }} />  
+    )
+  }
+  

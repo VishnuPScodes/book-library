@@ -15,6 +15,7 @@ import { Admin } from "./Admin"
 import { AdminLogin } from "./AdminLogin"
 import { AddItem } from "./AddItem"
 
+
 export const Allroutes=(()=>{
     return <div>
 <Routes>
@@ -37,6 +38,8 @@ export const Allroutes=(()=>{
     <Route  path="Additem" element={<PrivateRoute>
         <AddItem/>
     </PrivateRoute>}/>
+
+   
 </Routes>
 </div>
 

@@ -8,6 +8,47 @@ import urlencoded from "body-parser/lib/types/urlencoded";
 // const theme=useSelector((state=>state.nightmode));
 
 
+// button for book details page
+
+
+
+export const ButtonDet=styled.button`
+
+  //  border: 1px solid black;
+  width: '500px';
+  height: '400px';
+    color: ${(prop)=>
+prop.theme==true?"white":"white"
+};
+
+
+background-color: ${(prop)=>
+prop.theme==true?"black":"red"
+};
+
+
+`
+
+
+
+
+export const DivLoader=styled.div`
+
+  //  border: 1px solid black;
+    height: 700px;
+    width: 100%;
+    color: ${(prop)=>
+prop.theme==true?"white":"black"
+};
+
+
+background-color: ${(prop)=>
+prop.theme==true?"black":""
+};
+
+
+`
+
 export const Div=styled.div`
 
   //  border: 1px solid black;
