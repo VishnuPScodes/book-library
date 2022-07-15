@@ -44,48 +44,23 @@
   ],
   "children": [],
   "admin": [
-    [],
+    
+    
     {
-      "full_name": "Vishnu PS",
-      "email": "psvishnu131@gmail.com",
-      "book_name": "Adventures",
-      "category": "children's",
-      "id": 5
-    },
-    {
+      "date": "2022-7-15",
       "full_name": "Vishnu PS",
       "email": "psvishnu131@gmail.com",
       "book_name": "Advetures of huckleberryfin",
       "category": "children's",
-      "id": 6
+      "id": 10
     },
     {
-      "0": {
-        "date": "2022-7-12"
-      },
+      "date": "2022-7-15",
       "full_name": "Vishnu PS",
       "email": "psvishnu131@gmail.com",
-      "book_name": "testing wth date",
+      "book_name": "nothing",
       "category": "children's",
-      "id": 7
-    },
-    {
-      "0": {
-        "date": "2022-7-12"
-      },
-      "full_name": "Vishnu PS",
-      "email": "psvishnu131@gmail.com",
-      "book_name": "testing again ",
-      "category": "short stories",
-      "id": 8
-    },
-    {
-      "date": "2022-7-12",
-      "full_name": "Vishnu PS",
-      "email": "psvishnu131@gmail.com",
-      "book_name": "this time with date ha ha ha ...ha ha ha",
-      "category": "classics",
-      "id": 9
+      "id": 11
     }
   ]
 }
