@@ -9,7 +9,12 @@ export const dataActions={
     BOOK_SEARCH_FAILURE:"BOOK_SEARCH_FAILURE",
 
     NIGHT_MODE_ON:"NIGHT_MODE_ON",
-    LIGHT_MODE_ON:"LIGHT_MODE_ON"
+    LIGHT_MODE_ON:"LIGHT_MODE_ON",
+
+
+    WS_ADD_REQUEST:"WS_ADD_REQUEST",
+    WS_ADD_SUCCESS:"WS_ADD_SUCCESS",
+    WS_ADD_FAILURE:"WS_ADD_FAILURE",
 
 }
 
@@ -45,6 +50,26 @@ export const bookSearchRequest=(()=>{
     } 
 })
 export const booksearchFailure=(()=>{
+    return {
+        type:dataActions.BOOK_SEARCH_FAILURE
+    } 
+})
+
+
+
+export const wsAddSuccess=((payload)=>{
+    return {
+        type:dataActions.WS_ADD_SUCCESS,
+        payload:payload
+    } 
+})
+
+export const wsAddRequest=(()=>{
+    return {
+        type:dataActions.BOOK_SEARCH_REQUEST
+    } 
+})
+export const wsAddFailure=(()=>{
     return {
         type:dataActions.BOOK_SEARCH_FAILURE
     } 

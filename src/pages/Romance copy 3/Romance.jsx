@@ -12,7 +12,6 @@ import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
-import {FaListOl} from 'react-icons/fa'
 import Draggable from 'react-draggable';
 import { motion, useViewportScroll } from "framer-motion"
 
@@ -91,9 +90,7 @@ export const Romance=(()=>{
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
-        <Button marginTop={'5px'} marginRight={'20px'}><FaListOl/></Button>
-         <Div2  theme={nightmode}><Button  onClick={(()=>{
+        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div> <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);
             if(count==0){
                dispatch(nightModeOn())

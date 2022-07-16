@@ -1,9 +1,9 @@
-import { combineReducers, legacy_createStore } from "redux";
+import { legacy_createStore } from "redux";
+
+
+ import { combineReducers } from "redux";
 import { dataReducer } from "./reducer";
 import { authReducer } from "./redux2/reducer";
-
-
-
 
 
 const rootReducer=combineReducers({
@@ -12,7 +12,7 @@ const rootReducer=combineReducers({
 })
 
 
-export const store=legacy_createStore(rootReducer)
+export const store=legacy_createStore(rootReducer);
 
 console.log(store.getState());
 

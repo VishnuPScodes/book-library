@@ -6,7 +6,8 @@ const initState={
     loading:false,
     error:true,
     booksearch:false,
-    nightmode:false
+    nightmode:false,
+    ws:[]
 }
 
 export const dataReducer=((state=initState,action)=>{
@@ -55,7 +56,30 @@ export const dataReducer=((state=initState,action)=>{
                error:false
             }
         }
+        
 
+        case dataActions.WS_ADD_FAILURE :{
+            return {
+               ...state,
+               
+               error:true
+            }
+        }
+        case dataActions.WS_ADD_REQUEST:{
+            return {
+               ...state,
+               booksearch:true,
+               error:false
+              
+            }
+        }
+        case dataActions.WS_ADD_SUCCESS :{
+            return {
+               ...state,
+               ws:[...state.ws,action.payload],
+               error:false
+            }
+        }
 
         case dataActions.NIGHT_MODE_ON:{
             return {

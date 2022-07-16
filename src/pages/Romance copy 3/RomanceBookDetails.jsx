@@ -23,7 +23,7 @@ import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
+import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
   
@@ -33,9 +33,7 @@ import { ButtonDet, Div, DivLoader } from './styled/Div';
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.data.nightmode)
-    var count=0;
     useEffect(()=>{
-      
         dispatch(dataAddRequest())
         setTimeout(()=>{
           axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{
@@ -108,38 +106,6 @@ import { ButtonDet, Div, DivLoader } from './styled/Div';
        
           </Box>
         </Stack>
-        {/* Wish list button */}
-
-        <Button
-          rounded={'none'}
-          w={'full'}
-          mt={8}
-          size={'lg'}
-          py={'7'}
-          bg={useColorModeValue('white.00', 'white.0')}
-          color={useColorModeValue('red', 'white.00')}
-          textTransform={'uppercase'}
-          _hover={{
-            transform: 'translateY(2px)',
-            boxShadow: 'lg',
-          }} onClick={(()=>{
-            if(count==0){
-              // window.localStorage.setItem('wl',JSON.stringify(singleData))
-              dispatch(wsAddRequest());
-              dispatch(wsAddSuccess(singleData))
-              alert('Added to wish list successfully');
-              count++
-            }
-            else{
-              alert('You already added this book')
-            }
-            
-          })} >
-          ADD TO WISHLIST
-        </Button>
-
-
-
         <a href={'https://drive.google.com/file/d/19hNHtxDzjiui7COZqA2IRLc22j3w4vUA/view?usp=sharing'} download>   
         <Button
           rounded={'none'}

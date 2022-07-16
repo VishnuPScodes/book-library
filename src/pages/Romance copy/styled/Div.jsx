@@ -23,7 +23,7 @@ prop.theme==true?"white":"white"
 
 
 background-color: ${(prop)=>
-prop.theme==true?"black":"red"
+prop.theme==true?"black":"brown"
 };
 
 
@@ -35,7 +35,7 @@ prop.theme==true?"black":"red"
 export const DivLoader=styled.div`
 
   //  border: 1px solid black;
-    height: 575px;
+    height: 700px;
     width: 100%;
     color: ${(prop)=>
 prop.theme==true?"white":"black"
@@ -70,7 +70,7 @@ prop.theme==true?"black":""
 `
 export const Div3=styled.div`
   color:${(prop)=>
-  prop.theme==true?"black":"red"}
+  prop.theme==true?"black":"brown"}
 `
 
 export const Div2=styled.div`

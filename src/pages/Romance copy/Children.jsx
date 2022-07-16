@@ -1,18 +1,17 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
-import '../Romance/romance.css'
+import '../Romance copy/children.css'
 import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
 import axios from "axios"
-import { RomanceCard } from "./RomanceCard"
+import { ChildrenCard } from "./ChildrenCard"
 import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn } from "../../redux/action"
-import { RomanceLoader } from "./RomanceLoader"
+import { ChildrenLoader } from "./ChildrenLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
-import {FaListOl} from 'react-icons/fa'
 import Draggable from 'react-draggable';
 import { motion, useViewportScroll } from "framer-motion"
 
@@ -29,7 +28,7 @@ import {
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
 
-export const Romance=(()=>{
+export const Children=(()=>{
     const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
@@ -86,14 +85,12 @@ export const Romance=(()=>{
     
    
     return  <Div id="main-romance" theme={nightmode} >   
-        {loader==true?<RomanceLoader/>:<div > 
+        {loader==true?<ChildrenLoader/>:<div > 
          
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
-        <Button marginTop={'5px'} marginRight={'20px'}><FaListOl/></Button>
-         <Div2  theme={nightmode}><Button  onClick={(()=>{
+        })} id="home-children" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div> <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);
             if(count==0){
                dispatch(nightModeOn())
@@ -108,7 +105,7 @@ export const Romance=(()=>{
           </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
             <div style={{display:"flex"}}>
-            <Input id="romance-input" onChange={handleInput}  placeholder="Serach your book"  />
+            <Input id="romance-input" onChange={handleInput}  color='brown'  placeholder="Serach your book"  />
             <Button id="submit-romance" onClick={handleSubmit}>Submit</Button>
            
             </div>
@@ -133,7 +130,7 @@ export const Romance=(()=>{
   </MenuButton> 
   </MenuButtons>
   <MenuButtons> 
-  <MenuList backgroundColor="red">
+  <MenuList backgroundColor="brown">
     <MenuItem>Children's Section</MenuItem>
     <MenuItem>Classic Novels</MenuItem>
     <MenuItem>Short Stories</MenuItem>
@@ -154,8 +151,8 @@ export const Romance=(()=>{
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
             return <Stack onClick={(()=>{
-                navigate(`/RomanceBookDetails/${e.id}`)
-            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
+                navigate(`/ChildrenBookDetails/${e.id}`)
+            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <ChildrenCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
 

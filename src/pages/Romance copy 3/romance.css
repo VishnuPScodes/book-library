@@ -1,0 +1,52 @@
+#submit-romance{
+    display: none;
+   
+}
+#detailsLoader{
+    margin: auto;
+    margin-left: 200px;
+}
+#menue-ro{
+  margin-right: 900px;
+}
+#main-romance{
+  /* background-image: url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=600');
+  background-size: cover;
+   */
+}
+#floating-btn-roma{
+  z-index: 1;
+ 
+  
+  
+}
+
+#loader{
+  margin: auto;
+}
+
+
+.box {
+ 
+  cursor: move;
+  color: black;
+  max-width: 215px;
+  border-radius: 5px;
+  padding: 1em;
+  margin: auto;
+  user-select: none;
+}
+#home-romance:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}

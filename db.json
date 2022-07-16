@@ -44,8 +44,6 @@
   ],
   "children": [],
   "admin": [
-    
-    
     {
       "date": "2022-7-15",
       "full_name": "Vishnu PS",
@@ -61,6 +59,13 @@
       "book_name": "nothing",
       "category": "children's",
       "id": 11
+    },
+    {
+      "date": "2022-7-15",
+      "full_name": "Vishnu PS",
+      "email": "psvishnu131@gmail.com",
+      "book_name": "Will love happen twice?",
+      "id": 12
     }
   ]
 }
