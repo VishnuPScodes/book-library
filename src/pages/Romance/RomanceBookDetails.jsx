@@ -125,7 +125,7 @@ import { ButtonDet, Div, DivLoader } from './styled/Div';
           }} onClick={(()=>{
             if(count==0){
               // window.localStorage.setItem('wl',JSON.stringify(singleData))
-              dispatch(wsAddRequest());
+              //dispatch(wsAddRequest());
               dispatch(wsAddSuccess(singleData))
               alert('Added to wish list successfully');
               count++

@@ -96,12 +96,17 @@ export const Romance=(()=>{
         {loader==true?<RomanceLoader/>:<div > 
          
             <div id="header-pos" >  
-        <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
+        <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
         })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        <Tooltip label='Wish list'> 
         <Button onClick={(()=>{
+            dispatch(dataAddRequest())
             navigate('/Wishlist')
+            
         })} marginTop={'5px'} marginRight={'20px'}><FaListOl/></Button>
+         </Tooltip>
+         <Tooltip label='Night mode'> 
          <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);
             if(count==0){
@@ -113,6 +118,7 @@ export const Romance=(()=>{
             }
             
         })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></Div2>
+         </Tooltip>
     
           </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
