@@ -7,7 +7,7 @@ import {  useEffect, useState } from "react"
 import axios from "axios"
 import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
-import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn } from "../../redux/action"
+import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
@@ -15,6 +15,7 @@ import {ImBooks} from 'react-icons/im'
 import {FaListOl} from 'react-icons/fa'
 import Draggable from 'react-draggable';
 import { motion, useViewportScroll } from "framer-motion"
+import { Tooltip } from '@chakra-ui/react'
 
 import {  useScroll } from "framer-motion"
 import {
@@ -84,6 +85,12 @@ export const Romance=(()=>{
         }
     })
     
+    // Adding data from localstorage to redux
+    // let lsd=JSON.parse(window.localStorage.getItem('wl'));
+    // const rdd=useSelector(state=>state.data.ws)
+    // if(lsd?.length>rdd?.length){
+    //     dispatch(wsAddSuccess(lsd))
+    // }
    
     return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<RomanceLoader/>:<div > 
@@ -92,7 +99,9 @@ export const Romance=(()=>{
         <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
             navigate('/')
         })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
-        <Button marginTop={'5px'} marginRight={'20px'}><FaListOl/></Button>
+        <Button onClick={(()=>{
+            navigate('/Wishlist')
+        })} marginTop={'5px'} marginRight={'20px'}><FaListOl/></Button>
          <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);
             if(count==0){

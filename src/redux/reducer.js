@@ -68,7 +68,7 @@ export const dataReducer=((state=initState,action)=>{
         case dataActions.WS_ADD_REQUEST:{
             return {
                ...state,
-               booksearch:true,
+               
                error:false
               
             }

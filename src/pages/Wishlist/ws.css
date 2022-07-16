@@ -1,0 +1,31 @@
+#main-compo{
+    border: 1px solid blue;
+    height: 100px;
+    width: 55%;
+    display: flex;
+   
+    margin: auto;
+    margin-top: 40px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#single-ws{
+    margin: auto;
+}
+#book-name{
+    font-size: 30px;
+}
+#btn-compo{
+    border: 1px solid blue;
+    height: 60px;
+    width: 55%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+   align-content: flex-start;
+  
+}
+#btn-com{
+    background-color: red;
+    color: white;
+}
