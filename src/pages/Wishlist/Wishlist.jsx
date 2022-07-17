@@ -41,7 +41,7 @@ export const Wishlist=(()=>{
         <div id="single-ws">
          {dataFromLc?.map((e)=>{
              return (
-                 <WsComponent name={e.name} />
+                 <WsComponent image={e.image} name={e.name} />
              )
          })}
          

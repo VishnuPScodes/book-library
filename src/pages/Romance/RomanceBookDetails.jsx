@@ -1,6 +1,7 @@
 import {
     Box,
     chakra,
+  
     Container,
     Stack,
     Text,
@@ -16,7 +17,7 @@ import {
     List,
     ListItem,
   } from '@chakra-ui/react';
-  
+import {AiFillHome} from 'react-icons/ai'  
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
@@ -49,6 +50,11 @@ import { ButtonDet, Div, DivLoader } from './styled/Div';
     },[])
     
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
+      
+      <div onClick={(()=>{
+            navigate('/')
+        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
+     
     <SimpleGrid
       columns={{ base: 1, lg: 2 }}
       spacing={{ base: 8, md: 10 }}
