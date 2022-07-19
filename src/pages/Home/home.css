@@ -8,12 +8,12 @@
     background-image: url('');
 
 }
-#romance:hover{
+/* #romance:hover{
   
     background-image: url('https://rukminim1.flixcart.com/image/612/612/j8osu4w0-1/book/0/3/4/when-love-happens-original-imaeyngvw72cpxez.jpeg?q=70');
 
    
-}
+} */
 #romance:hover +#heading-romance{
     display: none;
 }
@@ -23,4 +23,47 @@
     width: 50%;
     margin: auto;
     border-radius: 30px;
+}
+#home-container-main{
+    background-image: url('https://bestanimations.com/media/books/402238143pretty-book-bench-nature-water-outdoors-animated-gif.gif');
+    background-size: contain;
+}
+#children{
+    opacity: .5;
+}
+#shortstory{
+    opacity: .5;
+}
+#classics{
+    opacity: .5;
+}
+#romance{
+    opacity: .5;
+}
+
+#children:hover{
+    opacity: 1;
+}
+#shortstory:hover{
+    opacity: 1;
+}
+#classics:hover{
+    opacity: 1;
+}
+#romance:hover{
+    opacity:1;
+}
+
+/* hovering and opacity reducing */
+#romance:hover~#children{
+    transition: 1.5s;
+    opacity:.1;
+}
+#romance:hover~#classics{
+    transition: 1.5s;
+    opacity:.1;
+}
+#romance:hover~#shortstory{
+    transition: 1.5s;
+    opacity:.1;
 }

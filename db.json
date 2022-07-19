@@ -7,6 +7,7 @@
       "rate": "5",
       "des": "Morgan Grant and her sixteen-year-old daughter, Clara, would like nothing more than to be nothing alike.  Morgan is determined to prevent her daughter from making the same mistakes she did. By getting pregnant and married way too young, Morgan put her own dreams on hold. Clara doesn't want to follow in her mother's footsteps. Her predictable mother doesn't have a spontaneous bone in her body.  With warring personalities and conflicting goals, Morgan and Clara find it increasingly difficult to coexist. The only person who can bring peace to the household is Chris--Morgan's husband, Clara's father, and the family anchor. But that peace is shattered when Chris is involved in a tragic and questionable accident. The heartbreaking and long-lasting consequences will reach far beyond just Morgan and Clara.  While struggling to rebuild everything that crashed around them, Morgan finds comfort in the last person she expects to, and Clara turns to the one boy she's been forbidden to see. With each passing day, new secrets, resentment, and misunderstandings make mother and daughter fall further apart. So far apart, it might be impossible for them to ever fall back together.",
       "download": "https://1lib.in/dl/5306242/2239ef",
+      "comments": [],
       "id": 1
     },
     {
@@ -15,6 +16,7 @@
       "rate": "5",
       "des": "Can you find yourself after you have lost that special someone?  A disillusioned and heartbroken Anusha finds herself in the small world of WeDonate.com. Struggling to cope with her feelings and the job of raising money for charity, she reluctantly searches for a worthwhile cause to support. For Ananth, who has been on the opposite side, no life is less worthy, no cause too small to support. Behind them are teams for whom going to extraordinary lengths to save lives is more than a full-time occupation. In front of them is the virtual world of social media-watching, interacting, judging, making choices, and sometimes, saving lives. From the virtual to the real, their lives and that of their families, are entangled in a way that moving together is the only solution. They can't escape each other. In this world of complicated relationships, should love be such a difficult ride?",
       "download": "https://1lib.in/dl/16644800/446169",
+      "comments": [],
       "id": 2
     },
     {
@@ -23,7 +25,8 @@
       "image": "https://www.bookgeeks.in/wp-content/uploads/2017/04/the-one-you-cannot-have.jpg",
       "rate": "5",
       "des": "This book handles the delicate subject of love failure and depression and puts a different spin to things. It gives us a message that if the situations are handled in a more matured way all these lives can be saved.",
-      "id": 3
+      "id": 3,
+      "comments": []
     },
     {
       "name": "You Are the Best Wife – Ajay K. Pandey",
@@ -31,6 +34,7 @@
       "rate": "5",
       "des": "Ajay believes in living for himself; Bhavna teaches him to live for others. Ajay is a planner for life; Bhavna makes him live in every moment. You are the Best Wife is a story of two people with contradictory ideologies who fall in love. It changes them for good. It changes the way they look at the world and the way the world looks at them. Until destiny reveals its plans. This is a true inspiring story of the author and his struggle with life, after his beloved wife left him halfway through their journey. But her last words, 'you are the best husband' gave him the strength to live on, and fulfil his promise of love. Told with frankness and doses of humor, this heartwarming tale of a boy and a girl who never gave up on their love in face of adversities, ends on a bittersweet and poignant note as Ajay comes to terms with the biggest lesson life has to offer.",
       "download": "https://1lib.in/dl/5286648/717a8a",
+      "comments": [],
       "id": 4
     },
     {
@@ -39,6 +43,7 @@
       "rate": "5",
       "des": "Ishaan Fauzdaar is a young and charismatic Air Force Officer. He is known as Shaanu to his near and dear ones and as Baaz to his colleagues and friends.  Tehmina Dadyseth is an independent, strong-willed and highly opinionated girl. Baaz is their story. Set in 1971, against the backdrop of the India-Pakistan war, this book has an excellent plot and lovable characters.",
       "download": "https://1lib.in/dl/19119798/06dd72",
+      "comments": [],
       "id": 5
     }
   ],
@@ -56,16 +61,24 @@
       "date": "2022-7-15",
       "full_name": "Vishnu PS",
       "email": "psvishnu131@gmail.com",
-      "book_name": "nothing",
-      "category": "children's",
-      "id": 11
-    },
-    {
-      "date": "2022-7-15",
-      "full_name": "Vishnu PS",
-      "email": "psvishnu131@gmail.com",
       "book_name": "Will love happen twice?",
       "id": 12
+    },
+    {
+      "date": "2022-7-17",
+      "full_name": "Vishnu PS",
+      "email": "psvishnu131@gmail.com",
+      "book_name": "Advetures of huckleberryfin",
+      "category": "children's",
+      "id": 13
+    },
+    {
+      "date": "2022-7-19",
+      "full_name": "Vishnu PS",
+      "email": "psvishnu131@gmail.com",
+      "book_name": "Sherlock homes",
+      "category": "classics",
+      "id": 14
     }
   ]
 }

@@ -27,19 +27,38 @@ import { useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
-  
+import { Input } from 'style-components';
+ 
+ 
   export const RomanceBookDetails=()=> {
+    const [comment,setComment]=useState([])
     const [singleData,setSingleData]=useState([])
+   
     const {id}=useParams()
+    console.log('id recieved',id)
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.data.nightmode)
     var count=0;
+    
+    // comments functions
+    const handleCChange=((e)=>{
+      const {id,value}=e.target;
+      setComment({...comment,
+      [id]:value
+      })
+    })
+    const handleComment=(()=>{
+      console.log(comment)
+      axios.patch(`http://localhost:4000/romance/${id}/comments`,comment,{ 'Content-type': 'application/json; charset=UTF-8' }).then(()=>{
+        alert('Comment added')
+      })
+    })
     useEffect(()=>{
       
         dispatch(dataAddRequest())
         setTimeout(()=>{
-          axios.get(`http://localhost:8080/romance/${id}`).then((res)=>{
+          axios.get(`http://localhost:4000/romance/${id}`).then((res)=>{
             setSingleData(res.data)
             dispatch(dataAddSuccess())
       }).catch(()=>{
@@ -48,7 +67,7 @@ import { ButtonDet, Div, DivLoader } from './styled/Div';
         },1000)
     
     },[])
-    
+    console.log('recieved data',singleData)
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
       
       <div onClick={(()=>{
@@ -170,11 +189,20 @@ import { ButtonDet, Div, DivLoader } from './styled/Div';
         </Stack>
       </Stack>
     </SimpleGrid>
+    {/* comments */}
+    <Button color={'red'}>Comment...</Button>
+    <Stack >
+        <div style={{margin:"auto"}}>
+          <Input id='name' placeholder='Your name' onChange={handleCChange} width={'40%'} />
+          <textarea id='comment' onChange={handleCChange} placeholder='Type your comment...'></textarea>
+          <Button color={'red'} onClick={handleComment} > Submit</Button>
+        </div>
+      </Stack>
   </Container>}
       
       {/* comments section */}
 
-      
+     
      
       </Div>
   }

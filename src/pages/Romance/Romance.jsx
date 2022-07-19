@@ -53,7 +53,7 @@ export const Romance=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:8080/romance').then((res)=>{
+        axios.get('http://localhost:4000/romance').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -169,7 +169,7 @@ export const Romance=(()=>{
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
             return <Stack onClick={(()=>{
-                navigate(`/RomanceBookDetails/${e.id}`)
+                navigate(`/RomanceBookDetails/${e._id}`)
             })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
