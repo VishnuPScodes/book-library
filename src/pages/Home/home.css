@@ -67,3 +67,48 @@
     transition: 1.5s;
     opacity:.1;
 }
+
+
+
+#children:hover~#romance{
+    transition: 1.5s;
+    opacity:.1;
+}
+#children:hover~#classics{
+    transition: 1.5s;
+    opacity:.1;
+}
+#children:hover~#shortstory{
+    transition: 1.5s;
+    opacity:.1;
+}
+
+
+
+#shortstory:hover~#romance{
+    transition: 1.5s;
+    opacity:.1;
+}
+#shortstory:hover~#children{
+    transition: 1.5s;
+    opacity:.1;
+}
+#shortstory:hover~#classics{
+    transition: 1.5s;
+    opacity:.1;
+}
+
+
+
+#classics:hover~#romance{
+    transition: 1.5s;
+    opacity:.1;
+}
+#classics:hover~#children{
+    transition: 1.5s;
+    opacity:.1;
+}
+#classics:hover~#shortstory{
+    transition: 1.5s;
+    opacity:.1;
+}

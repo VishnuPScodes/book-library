@@ -51,7 +51,7 @@ export const Children=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:4000/children').then((res)=>{
+        axios.get('http://localhost:4000/shortstory').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
