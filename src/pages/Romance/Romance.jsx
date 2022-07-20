@@ -73,8 +73,8 @@ export const Romance=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
-        setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/romance?q=${search}`).then((res)=>{
+        // setSearchParams({search:`${search}`})
+        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{
