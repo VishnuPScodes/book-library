@@ -16,7 +16,7 @@ import {FaListOl} from 'react-icons/fa'
 import Draggable from 'react-draggable';
 import { motion, useViewportScroll } from "framer-motion"
 import { Tooltip } from '@chakra-ui/react'
-
+import {MdExplore} from 'react-icons/md'
 import {  useScroll } from "framer-motion"
 import {
     Menu,
@@ -74,7 +74,7 @@ export const Romance=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
         // setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
+        axios.get(`http://localhost:4000/romance/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{
@@ -98,13 +98,20 @@ export const Romance=(()=>{
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        <Tooltip label='Explore'>
+        <Button onClick={(()=>{
+            dispatch(dataAddRequest())
+            navigate('/Explore')
+            
+        })} marginTop={'5px'} marginRight={'20px'} id="explore-btn"><MdExplore  /></Button>
+          </Tooltip>
         <Tooltip label='Wish list'> 
         <Button onClick={(()=>{
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })} marginTop={'5px'} marginRight={'20px'}><FaListOl/></Button>
+        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-btn'><FaListOl/></Button>
          </Tooltip>
          <Tooltip label='Night mode'> 
          <Div2  theme={nightmode}><Button  onClick={(()=>{
@@ -129,7 +136,7 @@ export const Romance=(()=>{
             </div>
            <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
         </Stack>
-        <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
+        {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
         </div>
 
 

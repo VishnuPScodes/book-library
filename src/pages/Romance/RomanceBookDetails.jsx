@@ -50,9 +50,18 @@ import { Input } from 'style-components';
     })
     const handleComment=(()=>{
       console.log(comment)
-      axios.patch(`http://localhost:4000/romance/${id}/comments`,comment,{ 'Content-type': 'application/json; charset=UTF-8' }).then(()=>{
-        alert('Comment added')
-      })
+     
+      fetch(`http://localhost:4000/romance/${id}`, {
+  method: 'PUT',
+  body: JSON.stringify({
+    comments:comment
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
     })
     useEffect(()=>{
       

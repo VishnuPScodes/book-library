@@ -50,3 +50,9 @@
   background: var(--red);
   transform-origin: 0%;
 }
+#explore-btn:hover{
+  color: red;
+}
+#wishlist-btn:hover{
+  color: red;
+}
