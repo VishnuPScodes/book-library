@@ -55,7 +55,7 @@
 }
 
 /* hovering and opacity reducing */
-#romance:hover~#children{
+/* #romance:hover~#children{
     transition: 1.5s;
     opacity:.1;
 }
@@ -111,4 +111,4 @@
 #classics:hover~#shortstory{
     transition: 1.5s;
     opacity:.1;
-}
+} */

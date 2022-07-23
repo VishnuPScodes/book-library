@@ -74,7 +74,7 @@ export const Romance=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
         // setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/romance/${search}`).then((res)=>{
+        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{
@@ -99,6 +99,7 @@ export const Romance=(()=>{
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
         })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        <Div2 theme={nightmode}> 
         <Tooltip label='Explore'>
         <Button onClick={(()=>{
             dispatch(dataAddRequest())
@@ -106,6 +107,8 @@ export const Romance=(()=>{
             
         })} marginTop={'5px'} marginRight={'20px'} id="explore-btn"><MdExplore  /></Button>
           </Tooltip>
+          </Div2>
+          <Div2 theme={nightmode}>  
         <Tooltip label='Wish list'> 
         <Button onClick={(()=>{
             dispatch(dataAddRequest())
@@ -113,6 +116,8 @@ export const Romance=(()=>{
             
         })} marginTop={'5px'} marginRight={'20px'} id='wishlist-btn'><FaListOl/></Button>
          </Tooltip>
+         </Div2>
+        
          <Tooltip label='Night mode'> 
          <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);

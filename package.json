@@ -16,6 +16,7 @@
     "@fontsource/raleway": "^4.5.9",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    
     "framer-motion": "^6.5.0",
     "react": "^18.0.0",
     "react-animated-text-content": "^1.0.1",

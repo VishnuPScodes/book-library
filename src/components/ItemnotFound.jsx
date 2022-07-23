@@ -1,5 +1,6 @@
 
 import './item.css'
+
 import { Checkbox, Heading, Spinner, Stack } from "@chakra-ui/react"
 import { useDisclosure } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
@@ -63,6 +64,16 @@ export const ItemnotFound=(()=>{
   })
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
+  //email js codes
+  const sendEmail=(()=>{
+    emailjs.send('gmail', 'template_r4rnpdf', data,'3HVjovw71e1Z8EEv3')
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+  })
+
     return <div>
         <div>
             <div style={{margin:"auto"}}>   <Heading>Sorry Book not available</Heading>
@@ -119,7 +130,7 @@ export const ItemnotFound=(()=>{
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={handleSubmit} >
+            <Button colorScheme='blue' mr={3} onClick={sendEmail} >
               {loading==true?<Spinner/>:"Submit"}
             </Button>
             <Button onClick={onClose}>Cancel</Button>

@@ -174,7 +174,7 @@ import { Input } from 'style-components';
 
 
 
-        <a href={'https://drive.google.com/file/d/19hNHtxDzjiui7COZqA2IRLc22j3w4vUA/view?usp=sharing'} download>   
+        <a href={singleData.download} download>   
         <Button
           rounded={'none'}
           w={'full'}
@@ -187,7 +187,8 @@ import { Input } from 'style-components';
           _hover={{
             transform: 'translateY(2px)',
             boxShadow: 'lg',
-          }}>
+
+          }} disabled={singleData.download==''}>
           Download
         </Button>
        
@@ -200,13 +201,17 @@ import { Input } from 'style-components';
     </SimpleGrid>
     {/* comments */}
     <Button color={'red'}>Comment...</Button>
-    <Stack >
+    <Stack display={'none'}>
         <div style={{margin:"auto"}}>
           <Input id='name' placeholder='Your name' onChange={handleCChange} width={'40%'} />
           <textarea id='comment' onChange={handleCChange} placeholder='Type your comment...'></textarea>
           <Button color={'red'} onClick={handleComment} > Submit</Button>
         </div>
       </Stack>
+      <div id='comment-box' >
+        <div id='comment-avatar'></div>
+        <div style={{color:"red"}} id='comment-text'>One of the best book i read so far , great story and writing</div>
+      </div>
   </Container>}
       
       {/* comments section */}

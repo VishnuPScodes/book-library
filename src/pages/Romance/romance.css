@@ -56,3 +56,23 @@
 #wishlist-btn:hover{
   color: red;
 }
+#comment-box{
+  border: 1px solid blue;
+  height: 70px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+#comment-avatar{
+  border: 1px solid red;
+  height: 100%;
+  width: 80px;
+}
+#comment-text{
+  margin-left: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+
+}
