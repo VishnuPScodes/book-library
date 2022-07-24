@@ -7,14 +7,16 @@ import {  useEffect, useState } from "react"
 import axios from "axios"
 import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
-import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn } from "../../redux/action"
+import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
+import {FaListOl} from 'react-icons/fa'
 import Draggable from 'react-draggable';
 import { motion, useViewportScroll } from "framer-motion"
-
+import { Tooltip } from '@chakra-ui/react'
+import {MdExplore} from 'react-icons/md'
 import {  useScroll } from "framer-motion"
 import {
     Menu,
@@ -51,7 +53,7 @@ export const Romance=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:8080/romance').then((res)=>{
+        axios.get('http://localhost:4000/romance').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -71,8 +73,8 @@ export const Romance=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
-        setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:8080/romance?q=${search}`).then((res)=>{
+        // setSearchParams({search:`${search}`})
+        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{
@@ -83,14 +85,41 @@ export const Romance=(()=>{
         }
     })
     
+    // Adding data from localstorage to redux
+    // let lsd=JSON.parse(window.localStorage.getItem('wl'));
+    // const rdd=useSelector(state=>state.data.ws)
+    // if(lsd?.length>rdd?.length){
+    //     dispatch(wsAddSuccess(lsd))
+    // }
    
     return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<RomanceLoader/>:<div > 
          
             <div id="header-pos" >  
-        <Heading display={'flex'}  textAlign={'center'}> <div onClick={(()=>{
+        <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div> <Div2  theme={nightmode}><Button  onClick={(()=>{
+        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        <Div2 theme={nightmode}> 
+        <Tooltip label='Explore'>
+        <Button onClick={(()=>{
+            dispatch(dataAddRequest())
+            navigate('/Explore')
+            
+        })} marginTop={'5px'} marginRight={'20px'} id="explore-btn"><MdExplore  /></Button>
+          </Tooltip>
+          </Div2>
+          <Div2 theme={nightmode}>  
+        <Tooltip label='Wish list'> 
+        <Button onClick={(()=>{
+            dispatch(dataAddRequest())
+            navigate('/Wishlist')
+            
+        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-btn'><FaListOl/></Button>
+         </Tooltip>
+         </Div2>
+        
+         <Tooltip label='Night mode'> 
+         <Div2  theme={nightmode}><Button  onClick={(()=>{
             setCount(count+1);
             if(count==0){
                dispatch(nightModeOn())
@@ -101,6 +130,7 @@ export const Romance=(()=>{
             }
             
         })}>{nightmode==true?<MoonIcon/>:<SunIcon/>}</Button></Div2>
+         </Tooltip>
     
           </Heading>
         <Stack width={{base:"100%",sm:"100%"}} style={{border:"1px solid grey",height:"90px",width:"100%"}}>
@@ -111,7 +141,7 @@ export const Romance=(()=>{
             </div>
            <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
         </Stack>
-        <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
+        {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
         </div>
 
 
@@ -151,7 +181,7 @@ export const Romance=(()=>{
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
             return <Stack onClick={(()=>{
-                navigate(`/RomanceBookDetails/${e.id}`)
+                navigate(`/RomanceBookDetails/${e._id}`)
             })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
