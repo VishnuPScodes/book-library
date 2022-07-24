@@ -86,7 +86,7 @@ import { lightModeOn } from '../../redux/action';
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
       <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
+        })} id="home-r-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
         <div id='romance-d-left-icons'>
          <div style={{marginRight:"8%"}}>
         <Div2  theme={nightmode}> 
@@ -95,7 +95,7 @@ import { lightModeOn } from '../../redux/action';
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })}  id="explore-btn"><MdExplore  /></Button>
+        })}  id="explore-r-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           </div>
@@ -106,7 +106,7 @@ import { lightModeOn } from '../../redux/action';
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })}  id='wishlist-btn'><FaListOl/></Button>
+        })}  id='wishlist-r-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
          </div> 

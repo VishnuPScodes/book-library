@@ -98,14 +98,14 @@ export const Romance=(()=>{
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        })} id="home-r-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
         <Div2 theme={nightmode}> 
         <Tooltip label='Explore'>
         <Button onClick={(()=>{
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })} marginTop={'5px'} marginRight={'20px'} id="explore-btn"><MdExplore  /></Button>
+        })} marginTop={'5px'} marginRight={'20px'} id="explore-r-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           <Div2 theme={nightmode}>  
@@ -114,7 +114,7 @@ export const Romance=(()=>{
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-btn'><FaListOl/></Button>
+        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-r-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
         

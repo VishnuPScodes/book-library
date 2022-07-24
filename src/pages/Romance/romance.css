@@ -36,7 +36,7 @@
   margin: auto;
   user-select: none;
 }
-#home-romance:hover{
+#home-r-romance:hover{
   color: red;
   cursor: pointer;
 }
@@ -50,10 +50,10 @@
   background: var(--red);
   transform-origin: 0%;
 }
-#explore-btn:hover{
+#explore-r-btn:hover{
   color: red;
 }
-#wishlist-btn:hover{
+#wishlist-r-btn:hover{
   color: red;
 }
 #comment-box{
