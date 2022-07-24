@@ -17,6 +17,7 @@ import {
     List,
     ListItem,
   } from '@chakra-ui/react';
+  import './romance.css'
 import { Tooltip } from '@chakra-ui/react';
 import { Div2 } from './styled/Div';
 import {AiFillHome} from 'react-icons/ai' 
@@ -26,13 +27,14 @@ import { useEffect, useState } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
 import { Input } from 'style-components';
 import { MdExplore } from 'react-icons/md'; 
 import { nightModeOn } from '../../redux/action';
+import { MoonIcon } from '@chakra-ui/icons';
 import { lightModeOn } from '../../redux/action';
  import { SunIcon } from '@chakra-ui/icons';
   export const ClassicsBookDetails=()=> {
@@ -41,10 +43,11 @@ import { lightModeOn } from '../../redux/action';
     const [singleData,setSingleData]=useState([])
    
     const {id}=useParams()
-    console.log('id recieved',id)
+    //console.log('id recieved',id)
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.data.nightmode)
+    const navigate=useNavigate()
     var count2=0;
     
     // comments functions
@@ -106,7 +109,7 @@ import { lightModeOn } from '../../redux/action';
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })}  id='wishlist-btn'><FaListOl/></Button>
+        })}  id='wishlist-y-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
          </div> 
@@ -172,7 +175,7 @@ import { lightModeOn } from '../../redux/action';
               color={useColorModeValue('gray.500', 'gray.400')}
               fontSize={'2xl'}
               fontWeight={'300'}>
-             {singleData.name}
+             {singleData.author}
             </Text>
             <Text id='text-details' fontSize={'lg'}>
               {singleData.des}.

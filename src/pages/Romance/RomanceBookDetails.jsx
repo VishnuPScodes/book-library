@@ -26,7 +26,7 @@ import { useEffect, useState } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
@@ -39,7 +39,7 @@ import { lightModeOn } from '../../redux/action';
     const [count,setCount]=useState(0);
     const [comment,setComment]=useState([])
     const [singleData,setSingleData]=useState([])
-   
+    const navigate=useNavigate()
     const {id}=useParams()
     console.log('id recieved',id)
     const dispatch=useDispatch()

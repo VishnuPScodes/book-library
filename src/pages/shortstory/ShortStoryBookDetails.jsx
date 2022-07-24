@@ -18,7 +18,9 @@ import {
     ListItem,
   } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
+import { MoonIcon } from '@chakra-ui/icons';
 import { Div2 } from './styled/Div';
+
 import {AiFillHome} from 'react-icons/ai' 
 import { FaListOl } from 'react-icons/fa';
 import axios from 'axios';
@@ -26,7 +28,7 @@ import { useEffect, useState } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
 import { DetailsLoader } from '../shortstory/DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
@@ -39,7 +41,7 @@ import { lightModeOn } from '../../redux/action';
     const [count,setCount]=useState(0);
     const [comment,setComment]=useState([])
     const [singleData,setSingleData]=useState([])
-   
+    const navigate=useNavigate('/')
     const {id}=useParams()
     console.log('id recieved',id)
     const dispatch=useDispatch()
