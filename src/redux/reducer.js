@@ -95,6 +95,12 @@ export const dataReducer=((state=initState,action)=>{
                error:false
             }
         }
+        case dataActions.DATA_REMOVE_SUCCESS :{
+            return {
+                ...state,
+                ws:[]
+            }
+        }
         default :
         return state
     }

@@ -76,3 +76,10 @@
   font-weight: 600;
 
 }
+#all-icons{
+  display: flex;
+}
+#romance-d-left-icons{
+  display: flex;
+  margin-left: 78%;
+}

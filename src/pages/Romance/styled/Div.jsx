@@ -51,16 +51,13 @@ prop.theme==true?"black":""
 
 export const Div=styled.div`
 
-  //  border: 1px solid black;
+ 
     height: 100%;
     width: 100%;
     color: ${(prop)=>
 prop.theme==true?"white":"black"
 };
-/* background-image: ${(prop)=>
-prop.theme==true?"none":"url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')"
 
-}; */
 
 background-color: ${(prop)=>
 prop.theme==true?"black":""

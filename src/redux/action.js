@@ -16,6 +16,8 @@ export const dataActions={
     WS_ADD_SUCCESS:"WS_ADD_SUCCESS",
     WS_ADD_FAILURE:"WS_ADD_FAILURE",
 
+    DATA_REMOVE_SUCCESS:"DATA_REMOVE_SUCCESS"
+
 }
 
 
@@ -89,3 +91,8 @@ export const lightModeOn=(()=>{
     } 
 })
 
+export const dataRemoveSuccess=(()=>{
+    return {
+        type:dataActions.DATA_REMOVE_SUCCESS
+    }
+})

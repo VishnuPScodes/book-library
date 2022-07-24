@@ -17,7 +17,10 @@ import {
     List,
     ListItem,
   } from '@chakra-ui/react';
-import {AiFillHome} from 'react-icons/ai'  
+import { Tooltip } from '@chakra-ui/react';
+import { Div2 } from './styled/Div';
+import {AiFillHome} from 'react-icons/ai' 
+import { FaListOl } from 'react-icons/fa';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
@@ -28,9 +31,12 @@ import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSucc
 import { DetailsLoader } from './DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
 import { Input } from 'style-components';
- 
- 
+import { MdExplore } from 'react-icons/md'; 
+import { nightModeOn } from '../../redux/action';
+import { lightModeOn } from '../../redux/action';
+ import { SunIcon } from '@chakra-ui/icons';
   export const RomanceBookDetails=()=> {
+    const [count,setCount]=useState(0);
     const [comment,setComment]=useState([])
     const [singleData,setSingleData]=useState([])
    
@@ -39,7 +45,7 @@ import { Input } from 'style-components';
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.data.nightmode)
-    var count=0;
+    var count2=0;
     
     // comments functions
     const handleCChange=((e)=>{
@@ -78,10 +84,48 @@ import { Input } from 'style-components';
     },[])
     console.log('recieved data',singleData)
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
-      
-      <div onClick={(()=>{
+      <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
         })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
+        <div id='romance-d-left-icons'>
+         <div style={{marginRight:"8%"}}>
+        <Div2  theme={nightmode}> 
+        <Tooltip label='Explore'>
+        <Button  onClick={(()=>{
+            dispatch(dataAddRequest())
+            navigate('/Explore')
+            
+        })}  id="explore-btn"><MdExplore  /></Button>
+          </Tooltip>
+          </Div2>
+          </div>
+          <div style={{marginRight:"8%"}}>
+          <Div2 theme={nightmode}>  
+        <Tooltip label='Wish list'> 
+        <Button onClick={(()=>{
+            dispatch(dataAddRequest())
+            navigate('/Wishlist')
+            
+        })}  id='wishlist-btn'><FaListOl/></Button>
+         </Tooltip>
+         </Div2>
+         </div> 
+         <div style={{marginRight:"8%"}}>
+         <Tooltip label='Night mode'> 
+         <Div2  theme={nightmode}><Button  onClick={(()=>{
+            setCount(count+1);
+            if(count==0){
+               dispatch(nightModeOn())
+            }
+            else{
+                dispatch(lightModeOn())
+                setCount(0)
+            }
+            
+        })}>{nightmode==true?<MoonIcon/>:<SunIcon/> }</Button></Div2>
+         </Tooltip> </div>
+        </div>  </div>
+    
      
     <SimpleGrid
       columns={{ base: 1, lg: 2 }}
@@ -157,12 +201,12 @@ import { Input } from 'style-components';
             transform: 'translateY(2px)',
             boxShadow: 'lg',
           }} onClick={(()=>{
-            if(count==0){
+            if(count2==0){
               // window.localStorage.setItem('wl',JSON.stringify(singleData))
               //dispatch(wsAddRequest());
               dispatch(wsAddSuccess(singleData))
               alert('Added to wish list successfully');
-              count++
+              count2++
             }
             else{
               alert('You already added this book')

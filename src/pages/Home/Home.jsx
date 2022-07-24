@@ -47,10 +47,10 @@ export const Home=(()=>{
         </Stack>
          <Grid id="main-grid" margin={'auto'} gap={6} templateColumns={{lg:"49% 49%" ,sm:"95%"}}>
             
-            <GridItem id="romance" borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverRomance}  onClick={handleRomance}  bg={{base:"yellow",sm:"red"}} ><Heading id="heading-romance">Romance</Heading></GridItem>
-            <GridItem  id="children" borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverChildren} onClick={handleChildren} bg={{base:"green" ,sm:"red",md:"brown"}}><Heading id="heading-children">  Children's Section</Heading></GridItem>
-           <GridItem id="shortstory"  borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverShortstory} bg={'orange'} >Short Stories</GridItem> 
-            <GridItem id="classics"  borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverClassics} bg={'yellow'}>Classics Novels</GridItem>
+            <GridItem id="romance" borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverRomance}  onClick={handleRomance}  bg={'red'} ><Heading id="heading-romance">Romance</Heading></GridItem>
+            <GridItem  id="children" borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverChildren} onClick={handleChildren} bg={'brown'}><Heading id="heading-children">  Children's Section</Heading></GridItem>
+           <GridItem id="shortstory"  borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverShortstory} bg={'orange'} ><Heading id="heading-short">  Short Stories</Heading></GridItem> 
+            <GridItem id="classics"  borderRadius={'20px'} h={'400px'} onMouseOut={hoverMain}  onMouseEnter={hoverClassics} bg={'yellow'}><Heading id="heading-classics">  Classics</Heading></GridItem>
          </Grid>
     </div>
 })
