@@ -17,6 +17,7 @@ import {
     List,
     ListItem,
   } from '@chakra-ui/react';
+  import '../children/romance.css'
 import { Tooltip } from '@chakra-ui/react';
 import { Div2 } from './styled/Div';
 import {AiFillHome} from 'react-icons/ai' 
@@ -106,7 +107,7 @@ import { lightModeOn } from '../../redux/action';
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })}  id='wishlist-btn'><FaListOl/></Button>
+        })}  id='wishlist-b-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
          </div> 
