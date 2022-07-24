@@ -20,6 +20,10 @@ import { Shortstory } from "../pages/shortstory/Shortstory"
 import { ShortStoryCard } from "../pages/shortstory/ShortStoryCard"
 import { ShortStoryLoader } from "../pages/shortstory/ShortStoryLoader"
 import { ShortStoryBookDetails } from "../pages/shortstory/ShortStoryBookDetails"
+import { Classics } from "../pages/classics/Classics"
+import { ClassicsCard } from "../pages/classics/ClassicsCard"
+import { ClassicsLoader } from "../pages/classics/ClassicsLoader"
+import { ClassicsBookDetails } from "../pages/classics/ClassicsBookDetails"
 
 
 export const Allroutes=(()=>{
@@ -55,10 +59,10 @@ export const Allroutes=(()=>{
     <Route  path="/ShortStoryBookDetails/:id" element={<ShortStoryBookDetails/>}/>
    
    {/* Classics */}
-   <Route  path="/Children" element={<Children/>}  />
-    <Route  path="/RomanceCard" element={<ChildrenCard/>}  />
-    <Route  path="/ChildrenLoader" element={<ChildrenLoader/>}  />
-    <Route  path="/ChildrenBookDetails/:id" element={<ChildrenBookDetails/>}/>
+   <Route  path="/Classics" element={<Classics/>}  />
+    <Route  path="/ClassicsCard" element={<ClassicsCard/>}  />
+    <Route  path="/ClassicsLoader" element={<ClassicsLoader/>}  />
+    <Route  path="/ClassicsBookDetails/:id" element={<ClassicsBookDetails/>}/>
 
 </Routes>
 </div>

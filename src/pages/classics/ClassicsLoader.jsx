@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import AnimatedText from 'react-animated-text-content';
 
 
-export const RomanceLoader=(()=>{
+export const ClassicsLoader=(()=>{
     const nightmode=useSelector(state=>state.nightmode)
     console.log(nightmode ,'nm')
 

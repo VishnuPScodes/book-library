@@ -5,10 +5,10 @@ import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
 import axios from "axios"
-import { RomanceCard } from "./RomanceCard"
+import { ClassicsCard } from "./ClassicsCard"
 import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
-import { RomanceLoader } from "./RomanceLoader"
+import { ClassicsLoader } from "./ClassicsLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
@@ -53,7 +53,7 @@ export const Classics=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:4000/romance').then((res)=>{
+        axios.get('http://localhost:4000/classics').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -74,7 +74,7 @@ export const Classics=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
         // setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
+        axios.get(`http://localhost:4000/classics/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{
@@ -93,7 +93,7 @@ export const Classics=(()=>{
     // }
    
     return  <Div id="main-romance" theme={nightmode} >   
-        {loader==true?<RomanceLoader/>:<div > 
+        {loader==true?<ClassicsLoader/>:<div > 
          
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
@@ -182,7 +182,7 @@ export const Classics=(()=>{
             
             return <Stack onClick={(()=>{
                 navigate(`/ClassicsBookDetails/${e._id}`)
-            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
+            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <ClassicsCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
 

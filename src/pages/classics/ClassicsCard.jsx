@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export const RomanceCard=({name,image,rating})=>{
+export const ClassicsCard=({name,image,rating})=>{
     const property = {
       imageUrl: 'https://www.bookgeeks.in/wp-content/uploads/2020/05/Will-You-Still-Love-Me-Ravinder-Singh.jpg',
       imageAlt: 'Rear view of modern home with pool',
