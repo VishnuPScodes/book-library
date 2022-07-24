@@ -62,7 +62,7 @@ export const ChildrenCard=({name,image,rating})=>{
               .map((_, i) => (
                 <StarIcon
                   key={i}
-                  color={i < rating ? 'teal.500' : 'gray.300'}
+                  color={i < rating ? 'brown' : 'gray.300'}
                 />
               ))}
             {/* <Box as='span' ml='2' color='gray.600' fontSize='sm'>

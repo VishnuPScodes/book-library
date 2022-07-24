@@ -1,5 +1,5 @@
 
-import "../Romance/romance.css"
+import "../Children/romance.css"
 import { Audio ,BallTriangle} from  'react-loader-spinner'
 import { Stack } from "@chakra-ui/react"
 // import { BookLoader } from "react-awesome-loaders";
@@ -19,7 +19,7 @@ export const DetailsLoader=(()=>{
         <BallTriangle id='loader'
     height="100"
     width="100"
-    color='red'
+    color='brown'
     margin='auto'
     ariaLabel='loading'
   />

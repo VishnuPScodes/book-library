@@ -195,7 +195,7 @@ import { lightModeOn } from '../../redux/action';
           size={'lg'}
           py={'7'}
           bg={useColorModeValue('white.00', 'white.0')}
-          color={useColorModeValue('red', 'white.00')}
+          color={useColorModeValue('brown', 'white.00')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',
@@ -225,8 +225,8 @@ import { lightModeOn } from '../../redux/action';
           mt={8}
           size={'lg'}
           py={'7'}
-          bg={useColorModeValue('red.00', 'red.0')}
-          color={useColorModeValue('white', 'red.00')}
+          bg={useColorModeValue('brown.00', 'brown.0')}
+          color={useColorModeValue('white', 'brown.00')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',
@@ -254,7 +254,7 @@ import { lightModeOn } from '../../redux/action';
       </Stack>
       <div id='comment-box' >
         <div id='comment-avatar'></div>
-        <div style={{color:"red"}} id='comment-text'>One of the best book i read so far , great story and writing</div>
+        <div style={{color:"brown"}} id='comment-text'>One of the best book i read so far , great story and writing</div>
       </div>
   </Container>}
       

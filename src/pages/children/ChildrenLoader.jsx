@@ -9,7 +9,7 @@ export const ChildrenLoader=(()=>{
     console.log(nightmode ,'nm')
 
     return <DivLoader theme={nightmode}>
-        <Heading color={'red.500'} >Welcome To Children's  Section🥰 </Heading>
+        <Heading color={'brown'} >Welcome To Children's  Section🥰 </Heading>
         
        
     </DivLoader>
