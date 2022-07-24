@@ -35,7 +35,7 @@ import { MdExplore } from 'react-icons/md';
 import { nightModeOn } from '../../redux/action';
 import { lightModeOn } from '../../redux/action';
  import { SunIcon } from '@chakra-ui/icons';
-  export const RomanceBookDetails=()=> {
+  export const ChildrenBookDetails=()=> {
     const [count,setCount]=useState(0);
     const [comment,setComment]=useState([])
     const [singleData,setSingleData]=useState([])
@@ -57,7 +57,7 @@ import { lightModeOn } from '../../redux/action';
     const handleComment=(()=>{
       console.log(comment)
      
-      fetch(`http://localhost:4000/romance/${id}`, {
+      fetch(`http://localhost:4000/children/${id}`, {
   method: 'PUT',
   body: JSON.stringify({
     comments:comment
@@ -73,7 +73,7 @@ import { lightModeOn } from '../../redux/action';
       
         dispatch(dataAddRequest())
         setTimeout(()=>{
-          axios.get(`http://localhost:4000/romance/${id}`).then((res)=>{
+          axios.get(`http://localhost:4000/children/${id}`).then((res)=>{
             setSingleData(res.data)
             dispatch(dataAddSuccess())
       }).catch(()=>{

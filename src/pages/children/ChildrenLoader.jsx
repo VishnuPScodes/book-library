@@ -4,12 +4,12 @@ import { useSelector } from "react-redux"
 import AnimatedText from 'react-animated-text-content';
 
 
-export const RomanceLoader=(()=>{
+export const ChildrenLoader=(()=>{
     const nightmode=useSelector(state=>state.nightmode)
     console.log(nightmode ,'nm')
 
     return <DivLoader theme={nightmode}>
-        <Heading color={'red.500'} >Welcome To Romance Section🥰 </Heading>
+        <Heading color={'red.500'} >Welcome To Children's  Section🥰 </Heading>
         
        
     </DivLoader>

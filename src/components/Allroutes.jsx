@@ -24,6 +24,10 @@ import { Classics } from "../pages/classics/Classics"
 import { ClassicsCard } from "../pages/classics/ClassicsCard"
 import { ClassicsLoader } from "../pages/classics/ClassicsLoader"
 import { ClassicsBookDetails } from "../pages/classics/ClassicsBookDetails"
+import { Children } from "../pages/children/Children"
+import { ChildrenCard } from "../pages/children/ChildrenCard"
+import { ChildrenBookDetails } from "../pages/children/ChildrenBookDetails"
+import { ChildrenLoader } from "../pages/children/ChildrenLoader"
 
 
 export const Allroutes=(()=>{
@@ -64,6 +68,13 @@ export const Allroutes=(()=>{
     <Route  path="/ClassicsLoader" element={<ClassicsLoader/>}  />
     <Route  path="/ClassicsBookDetails/:id" element={<ClassicsBookDetails/>}/>
 
+
+
+   {/* Children Section */}
+   <Route  path="/Children" element={<Children/>}  />
+    <Route  path="/ChildrenCard" element={<ChildrenCard/>}  />
+    <Route  path="/ChildrenLoader" element={<ChildrenLoader/>}  />
+    <Route  path="/ChildrenBookDetails/:id" element={<ChildrenBookDetails/>}/>
 </Routes>
 </div>
 
