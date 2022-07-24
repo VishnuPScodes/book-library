@@ -36,8 +36,8 @@
   margin: auto;
   user-select: none;
 }
-#home-romance:hover{
-  color: red;
+#home-s-romance:hover{
+  color: orange;
   cursor: pointer;
 }
 
@@ -47,14 +47,14 @@
   left: 0;
   right: 0;
   height: 10px;
-  background: var(--red);
+  background: var(--orange);
   transform-origin: 0%;
 }
-#explore-btn:hover{
-  color: red;
+#explore-s-btn:hover{
+  color: orange;
 }
-#wishlist-btn:hover{
-  color: red;
+#wishlist-s-btn:hover{
+  color: orange;
 }
 #comment-box{
   border: 1px solid blue;
@@ -66,7 +66,7 @@
   align-content: flex-start;
 }
 #comment-avatar{
-  border: 1px solid red;
+  border: 1px solid orange;
   height: 100%;
   width: 80px;
 }

@@ -9,7 +9,7 @@ export const ShortStoryLoader=(()=>{
    
 
     return <DivLoader theme={nightmode}>
-        <Heading color={'red.500'} >Welcome To Short Stories Section🥰 </Heading>
+        <Heading color={'orange'} >Welcome To Short Stories Section🥰 </Heading>
         
        
     </DivLoader>

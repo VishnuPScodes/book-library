@@ -62,7 +62,7 @@ export const ShortStoryCard=({name,image,rating})=>{
               .map((_, i) => (
                 <StarIcon
                   key={i}
-                  color={i < rating ? 'teal.500' : 'gray.300'}
+                  color={i < rating ? 'orange' : 'orange'}
                 />
               ))}
             {/* <Box as='span' ml='2' color='gray.600' fontSize='sm'>

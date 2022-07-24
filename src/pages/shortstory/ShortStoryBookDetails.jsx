@@ -195,7 +195,7 @@ import { lightModeOn } from '../../redux/action';
           size={'lg'}
           py={'7'}
           bg={useColorModeValue('white.00', 'white.0')}
-          color={useColorModeValue('red', 'white.00')}
+          color={useColorModeValue('orange', 'white.00')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',
@@ -225,8 +225,8 @@ import { lightModeOn } from '../../redux/action';
           mt={8}
           size={'lg'}
           py={'7'}
-          bg={useColorModeValue('red.00', 'red.0')}
-          color={useColorModeValue('white', 'red.00')}
+          bg={useColorModeValue('orange.00', 'orange.0')}
+          color={useColorModeValue('white', 'orange.00')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',
