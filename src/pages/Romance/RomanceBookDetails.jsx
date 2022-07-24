@@ -244,7 +244,7 @@ import { lightModeOn } from '../../redux/action';
       </Stack>
     </SimpleGrid>
     {/* comments */}
-    <Button color={'red'}>Comment...</Button>
+    {/* <Button color={'red'}>Comment...</Button>
     <Stack display={'none'}>
         <div style={{margin:"auto"}}>
           <Input id='name' placeholder='Your name' onChange={handleCChange} width={'40%'} />
@@ -255,7 +255,7 @@ import { lightModeOn } from '../../redux/action';
       <div id='comment-box' >
         <div id='comment-avatar'></div>
         <div style={{color:"red"}} id='comment-text'>One of the best book i read so far , great story and writing</div>
-      </div>
+      </div> */}
   </Container>}
       
       {/* comments section */}
