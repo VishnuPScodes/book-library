@@ -161,9 +161,15 @@ export const Children=(()=>{
   </MenuButtons>
   <MenuButtons> 
   <MenuList backgroundColor="brown">
-    <MenuItem>Children's Section</MenuItem>
-    <MenuItem>Classic Novels</MenuItem>
-    <MenuItem>Short Stories</MenuItem>
+    <MenuItem onClick={(()=>{
+        navigate('/Romance')
+    })} >Romance Section</MenuItem>
+    <MenuItem onClick={(()=>{
+        navigate('/classics')
+    })}>Classic Novels</MenuItem>
+    <MenuItem onClick={(()=>{
+        navigate('/Shortstory')
+    })}>Short Stories</MenuItem>
     
   </MenuList>
    </MenuButtons>

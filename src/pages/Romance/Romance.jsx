@@ -29,6 +29,7 @@ import {
     MenuDivider,
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
+import Footer from "../../components/footer/Footer"
 
 export const Romance=(()=>{
     const [count,setCount]=useState(0);
@@ -161,9 +162,15 @@ export const Romance=(()=>{
   </MenuButtons>
   <MenuButtons> 
   <MenuList backgroundColor="red">
-    <MenuItem>Children's Section</MenuItem>
-    <MenuItem>Classic Novels</MenuItem>
-    <MenuItem>Short Stories</MenuItem>
+    <MenuItem onClick={(()=>{
+        navigate('/Children')
+    })}>Children's Section</MenuItem>
+    <MenuItem onClick={(()=>{
+        navigate('/classics')
+    })}>Classic Novels</MenuItem>
+    <MenuItem onClick={(()=>{
+        navigate('/Shortstory')
+    })}>Short Stories</MenuItem>
     
   </MenuList>
    </MenuButtons>
@@ -194,7 +201,7 @@ export const Romance=(()=>{
        
     
     </div>}  
-    
+   {/* // <Footer/> */}
     </Div>
     
     

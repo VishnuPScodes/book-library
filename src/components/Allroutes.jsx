@@ -28,6 +28,7 @@ import { Children } from "../pages/children/Children"
 import { ChildrenCard } from "../pages/children/ChildrenCard"
 import { ChildrenBookDetails } from "../pages/children/ChildrenBookDetails"
 import { ChildrenLoader } from "../pages/children/ChildrenLoader"
+import Footer from "./footer/Footer"
 
 
 export const Allroutes=(()=>{
@@ -75,6 +76,8 @@ export const Allroutes=(()=>{
     <Route  path="/ChildrenCard" element={<ChildrenCard/>}  />
     <Route  path="/ChildrenLoader" element={<ChildrenLoader/>}  />
     <Route  path="/ChildrenBookDetails/:id" element={<ChildrenBookDetails/>}/>
+
+    <Route  path="/footer" element={<Footer/>}/>
 </Routes>
 </div>
 
