@@ -1,5 +1,5 @@
 #main-compo{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 100px;
     width: 55%;
     display: flex;
@@ -16,7 +16,7 @@
     font-size: 30px;
 }
 #btn-compo{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 60px;
     width: 55%;
     margin: auto;

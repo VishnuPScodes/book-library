@@ -50,9 +50,9 @@ export const ItemnotFound=(()=>{
     })
   })
   const handleSubmit=(()=>{
-   
+   console.log('data',data)
     dispatch(dataAddRequest());
-    axios.post('http://localhost:8080/admin',data).then(()=>{
+    axios.post('http://localhost:4000/posts',data).then(()=>{
         dispatch(dataAddSuccess())
     }).then(()=>{
       alert('Data added successfully')
@@ -130,7 +130,7 @@ export const ItemnotFound=(()=>{
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={sendEmail} >
+            <Button colorScheme='blue' mr={3} onClick={handleSubmit} >
               {loading==true?<Spinner/>:"Submit"}
             </Button>
             <Button onClick={onClose}>Cancel</Button>

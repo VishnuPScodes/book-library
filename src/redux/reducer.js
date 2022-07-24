@@ -98,8 +98,8 @@ export const dataReducer=((state=initState,action)=>{
         case dataActions.DATA_REMOVE_SUCCESS :{
             return {
                 ...state,
-                ws:[]
-            }
+                ws: state.ws.filter((item, index) => index == 10)
+              }
         }
         default :
         return state

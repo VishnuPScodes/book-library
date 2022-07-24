@@ -74,7 +74,7 @@ export const Shortstory=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
         // setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
+        axios.get(`http://localhost:4000/shortstory/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{

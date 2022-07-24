@@ -25,7 +25,7 @@ export const Admin=(({name,id,date,category})=>{
     const navigate=useNavigate();
     console.log(auth,'is')
     useEffect(()=>{
-      axios.get('http://localhost:8080/admin').then((e)=>{
+      axios.get('http://localhost:4000/posts').then((e)=>{
            setData(e.data)
       })
     },[])
