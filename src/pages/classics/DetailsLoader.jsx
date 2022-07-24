@@ -19,7 +19,7 @@ export const DetailsLoader=(()=>{
         <BallTriangle id='loader'
     height="100"
     width="100"
-    color='red'
+    color='yellow'
     margin='auto'
     ariaLabel='loading'
   />

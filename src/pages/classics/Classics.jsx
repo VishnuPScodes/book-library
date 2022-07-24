@@ -1,6 +1,6 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
-import '../Romance/romance.css'
+import '../classics/romance.css'
 import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
@@ -98,14 +98,14 @@ export const Classics=(()=>{
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
+        })} id="home-y-romance" style={{marginLeft:"1.2%"}}><AiFillHome   size={'40px'} /></div>   <div style={{margin:"auto"}}>   Choose your book</div>
         <Div2 theme={nightmode}> 
         <Tooltip label='Explore'>
         <Button onClick={(()=>{
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })} marginTop={'5px'} marginRight={'20px'} id="explore-btn"><MdExplore  /></Button>
+        })} marginTop={'5px'} marginRight={'20px'} id="explore-y-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           <Div2 theme={nightmode}>  
@@ -160,7 +160,7 @@ export const Classics=(()=>{
   </MenuButton> 
   </MenuButtons>
   <MenuButtons> 
-  <MenuList backgroundColor="red">
+  <MenuList backgroundColor="yellow">
     <MenuItem>Children's Section</MenuItem>
     <MenuItem>Classic Novels</MenuItem>
     <MenuItem>Short Stories</MenuItem>

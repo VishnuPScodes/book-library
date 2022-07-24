@@ -9,7 +9,7 @@ export const ClassicsLoader=(()=>{
     console.log(nightmode ,'nm')
 
     return <DivLoader theme={nightmode}>
-        <Heading color={'red.500'} >Welcome To Classic Novels Section🥰 </Heading>
+        <Heading color={'yellow'} >Welcome To Classic Novels Section🥰 </Heading>
         
        
     </DivLoader>

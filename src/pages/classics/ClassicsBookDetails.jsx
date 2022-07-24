@@ -86,7 +86,7 @@ import { lightModeOn } from '../../redux/action';
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
       <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
-        })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
+        })} id="home-y-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
         <div id='romance-d-left-icons'>
          <div style={{marginRight:"8%"}}>
         <Div2  theme={nightmode}> 
@@ -95,7 +95,7 @@ import { lightModeOn } from '../../redux/action';
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })}  id="explore-btn"><MdExplore  /></Button>
+        })}  id="explore-y-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           </div>
@@ -195,7 +195,7 @@ import { lightModeOn } from '../../redux/action';
           size={'lg'}
           py={'7'}
           bg={useColorModeValue('white.00', 'white.0')}
-          color={useColorModeValue('red', 'white.00')}
+          color={useColorModeValue('yellow', 'white.00')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',
@@ -225,8 +225,8 @@ import { lightModeOn } from '../../redux/action';
           mt={8}
           size={'lg'}
           py={'7'}
-          bg={useColorModeValue('red.00', 'red.0')}
-          color={useColorModeValue('white', 'red.00')}
+          bg={useColorModeValue('yellow', 'yellow')}
+          color={useColorModeValue('white', 'yellow')}
           textTransform={'uppercase'}
           _hover={{
             transform: 'translateY(2px)',
