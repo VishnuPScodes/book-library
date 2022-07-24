@@ -9,7 +9,7 @@ export const RomanceLoader=(()=>{
     console.log(nightmode ,'nm')
 
     return <DivLoader theme={nightmode}>
-        <Heading color={'red.500'} >Welcome To Romance Section🥰 </Heading>
+        <Heading color={'red.500'} >Welcome To Classic Novels Section🥰 </Heading>
         
        
     </DivLoader>

@@ -1,14 +1,14 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
-import '../Romance/romance.css'
+import '../shortstory/shortstory.css'
 import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
 import axios from "axios"
-import { RomanceCard } from "./RomanceCard"
+import { ShortStoryCard } from "./ShortStoryCard"
 import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
-import { RomanceLoader } from "./RomanceLoader"
+import { ShortStoryLoader } from "./ShortStoryLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
 import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
@@ -30,7 +30,7 @@ import {
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
 
-export const Romance=(()=>{
+export const Shortstory=(()=>{
     const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
@@ -53,7 +53,7 @@ export const Romance=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:4000/romance').then((res)=>{
+        axios.get('http://localhost:4000/shortstory').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -93,7 +93,7 @@ export const Romance=(()=>{
     // }
    
     return  <Div id="main-romance" theme={nightmode} >   
-        {loader==true?<RomanceLoader/>:<div > 
+        {loader==true?<ShortStoryLoader/>:<div > 
          
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
@@ -181,8 +181,8 @@ export const Romance=(()=>{
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
             return <Stack onClick={(()=>{
-                navigate(`/RomanceBookDetails/${e._id}`)
-            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
+                navigate(`/ShortStoryBookDetails/${e._id}`)
+            })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <ShortStoryCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>
 

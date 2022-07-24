@@ -30,7 +30,7 @@ import {
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
 
-export const Romance=(()=>{
+export const Classics=(()=>{
     const [count,setCount]=useState(0);
     const [click,setClick]=useState(false);
     const [search,setSearch]=useState('');
@@ -181,7 +181,7 @@ export const Romance=(()=>{
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
             return <Stack onClick={(()=>{
-                navigate(`/RomanceBookDetails/${e._id}`)
+                navigate(`/ClassicsBookDetails/${e._id}`)
             })} marginTop={{ base:"20px",sm:"20px"}} margin={{base:"",sm:"auto"}} marginLeft={{base:"2.09%",sm:""}}>  <RomanceCard  name={e.name} image={e.image} rating={e.rate} /> </Stack>
         })}
         </div>

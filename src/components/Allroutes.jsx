@@ -14,11 +14,12 @@ import { Admin } from "./Admin"
 import { AdminLogin } from "./AdminLogin"
 import { AddItem } from "./AddItem"
 import { Explore } from "./Explore"
-import { Children } from "../pages/Romance copy/Children"
-import { ChildrenCard } from "../pages/Romance copy/ChildrenCard"
-import { ChildrenLoader } from "../pages/Romance copy/ChildrenLoader"
-import { ChildrenBookDetails } from "../pages/Romance copy/ChildrenBookDetails"
+
 import { Wishlist } from "../pages/Wishlist/Wishlist"
+import { Shortstory } from "../pages/shortstory/Shortstory"
+import { ShortStoryCard } from "../pages/shortstory/ShortStoryCard"
+import { ShortStoryLoader } from "../pages/shortstory/ShortStoryLoader"
+import { ShortStoryBookDetails } from "../pages/shortstory/ShortStoryBookDetails"
 
 
 export const Allroutes=(()=>{
@@ -42,15 +43,22 @@ export const Allroutes=(()=>{
         <AddItem/>
     </PrivateRoute>}/>
     <Route  path="/Explore" element={<Explore/>}/>
-    {/* children section */}
-    <Route  path="/Children" element={<Children/>}  />
+
+
+    <Route  path="/Wishlist" element={<Wishlist/>}  />
+    
+
+    {/* Short stories */}
+    <Route  path="/Shortstory" element={<Shortstory/>}  />
+    <Route  path="/ShortStoryCard" element={<ShortStoryCard/>}  />
+    <Route  path="/ChildrenLoader" element={<ShortStoryLoader/>}  />
+    <Route  path="/ShortStoryBookDetails/:id" element={<ShortStoryBookDetails/>}/>
+   
+   {/* Classics */}
+   <Route  path="/Children" element={<Children/>}  />
     <Route  path="/RomanceCard" element={<ChildrenCard/>}  />
     <Route  path="/ChildrenLoader" element={<ChildrenLoader/>}  />
     <Route  path="/ChildrenBookDetails/:id" element={<ChildrenBookDetails/>}/>
-
-    <Route  path="/Wishlist" element={<Wishlist/>}  />
-
-   
 
 </Routes>
 </div>

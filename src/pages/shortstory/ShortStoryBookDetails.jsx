@@ -28,14 +28,14 @@ import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
-import { DetailsLoader } from './DetailsLoader';
+import { DetailsLoader } from '../shortstory/DetailsLoader';
 import { ButtonDet, Div, DivLoader } from './styled/Div';
 import { Input } from 'style-components';
 import { MdExplore } from 'react-icons/md'; 
 import { nightModeOn } from '../../redux/action';
 import { lightModeOn } from '../../redux/action';
  import { SunIcon } from '@chakra-ui/icons';
-  export const RomanceBookDetails=()=> {
+  export const ShortStoryBookDetails=()=> {
     const [count,setCount]=useState(0);
     const [comment,setComment]=useState([])
     const [singleData,setSingleData]=useState([])
@@ -57,7 +57,7 @@ import { lightModeOn } from '../../redux/action';
     const handleComment=(()=>{
       console.log(comment)
      
-      fetch(`http://localhost:4000/romance/${id}`, {
+      fetch(`http://localhost:4000/shortstory/${id}`, {
   method: 'PUT',
   body: JSON.stringify({
     comments:comment
@@ -73,7 +73,7 @@ import { lightModeOn } from '../../redux/action';
       
         dispatch(dataAddRequest())
         setTimeout(()=>{
-          axios.get(`http://localhost:4000/romance/${id}`).then((res)=>{
+          axios.get(`http://localhost:4000/shortstory/${id}`).then((res)=>{
             setSingleData(res.data)
             dispatch(dataAddSuccess())
       }).catch(()=>{
@@ -172,7 +172,7 @@ import { lightModeOn } from '../../redux/action';
               color={useColorModeValue('gray.500', 'gray.400')}
               fontSize={'2xl'}
               fontWeight={'300'}>
-             {singleData.name}
+             {singleData.author}
             </Text>
             <Text id='text-details' fontSize={'lg'}>
               {singleData.des}.
