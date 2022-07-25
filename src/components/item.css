@@ -104,3 +104,11 @@
 #admin-btn{
   background-color: #06f;
 }
+#author{
+  color: #06f;
+}
+#img-box{
+   /* border: 1px solid blue; */
+   height: 110px;
+   width: 135px;
+}

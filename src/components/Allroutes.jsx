@@ -29,6 +29,7 @@ import { ChildrenCard } from "../pages/children/ChildrenCard"
 import { ChildrenBookDetails } from "../pages/children/ChildrenBookDetails"
 import { ChildrenLoader } from "../pages/children/ChildrenLoader"
 import Footer from "./footer/Footer"
+import { ExploreDetails } from "./ExploreDetails"
 
 
 export const Allroutes=(()=>{
@@ -78,6 +79,7 @@ export const Allroutes=(()=>{
     <Route  path="/ChildrenBookDetails/:id" element={<ChildrenBookDetails/>}/>
 
     <Route  path="/footer" element={<Footer/>}/>
+    <Route  path="/ExploreDetails" element={<ExploreDetails/>}/>
 </Routes>
 </div>
 

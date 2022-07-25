@@ -16,7 +16,9 @@ export const dataActions={
     WS_ADD_SUCCESS:"WS_ADD_SUCCESS",
     WS_ADD_FAILURE:"WS_ADD_FAILURE",
 
-    DATA_REMOVE_SUCCESS:"DATA_REMOVE_SUCCESS"
+    DATA_REMOVE_SUCCESS:"DATA_REMOVE_SUCCESS",
+
+    ADD_SINGLE_ITEM:"ADD_SINGLE_ITEM"
 
 }
 
@@ -94,5 +96,12 @@ export const lightModeOn=(()=>{
 export const dataRemoveSuccess=(()=>{
     return {
         type:dataActions.DATA_REMOVE_SUCCESS
+    }
+})
+
+export const addSingleItem=((data)=>{
+    return {
+        type:dataActions.ADD_SINGLE_ITEM,
+        payload:data
     }
 })

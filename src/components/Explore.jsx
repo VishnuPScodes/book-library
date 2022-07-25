@@ -3,7 +3,8 @@ import axios from "axios";
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { RomanceCard } from "../pages/Romance/RomanceCard";
-import { bookSearchRequest, bookSearchSuccess } from "../redux/action";
+import {useNavigate} from 'react-router-dom'
+import { addSingleItem, bookSearchRequest, bookSearchSuccess } from "../redux/action";
 import { SearchBar } from "./SearchComponents/Searchbar";
 
 
@@ -13,6 +14,7 @@ export const Explore=(()=>{
     const [bookshelf,setBookshelf]=useState([])
     const loading=useSelector(state=>state.data.booksearch)
     const dispatch=useDispatch();
+    const navigate=useNavigate()
     const handleClick=(()=>{
         dispatch(bookSearchRequest())
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bookname}`).then((e)=>{
@@ -30,7 +32,12 @@ export const Explore=(()=>{
         <div  >
             {bookshelf?.items?.map((e)=>{
                 return (
-                    <SearchBar image={e.volumeInfo.imageLinks?.thumbnail} rating={e.volumeInfo.ratingsCount} name={e.volumeInfo.title}  />
+                    <div onClick={(()=>{
+                        dispatch(addSingleItem(e));
+                        navigate('/ExploreDetails')
+                    })}>  
+                    <SearchBar image={e.volumeInfo.imageLinks?.thumbnail} rating={e.volumeInfo.ratingsCount} name={e.volumeInfo.title}   />
+                    </div>
                     
                 )
             })}

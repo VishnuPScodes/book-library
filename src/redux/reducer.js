@@ -7,7 +7,8 @@ const initState={
     error:true,
     booksearch:false,
     nightmode:false,
-    ws:[]
+    ws:[],
+    singleItem:[]
 }
 
 export const dataReducer=((state=initState,action)=>{
@@ -100,6 +101,12 @@ export const dataReducer=((state=initState,action)=>{
                 ...state,
                 ws: state.ws.filter((item, index) => index == 10)
               }
+        }
+        case dataActions.ADD_SINGLE_ITEM :{
+            return {
+                ...state,
+                singleItem:action.payload
+            }
         }
         default :
         return state
