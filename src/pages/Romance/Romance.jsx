@@ -54,7 +54,7 @@ export const Romance=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:4000/romance').then((res)=>{
+        axios.get('https://backend-api-books.herokuapp.com/romance').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -75,7 +75,7 @@ export const Romance=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
         // setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/romance/search/${search}`).then((res)=>{
+        axios.get(`hhttps://backend-api-books.herokuapp.com/romance/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{

@@ -53,7 +53,7 @@ export const Children=(()=>{
     useEffect(()=>{
         setSearchParams({})
         dispatch(dataAddRequest())
-        axios.get('http://localhost:4000/children').then((res)=>{
+        axios.get('https://backend-api-books.herokuapp.com/children').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -69,12 +69,12 @@ export const Children=(()=>{
         romanceBtn.style.display="block"
         setSearch(e.target.value);
     })
-
+    
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
         // setSearchParams({search:`${search}`})
-        axios.get(`http://localhost:4000/children/search/${search}`).then((res)=>{
+        axios.get(`https://backend-api-books.herokuapp.com/children/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{

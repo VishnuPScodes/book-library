@@ -60,7 +60,7 @@ import { lightModeOn } from '../../redux/action';
     const handleComment=(()=>{
       console.log(comment)
      
-      fetch(`http://localhost:4000/romance/${id}`, {
+      fetch(`https://backend-api-books.herokuapp.com/romance/${id}`, {
   method: 'PUT',
   body: JSON.stringify({
     comments:comment
@@ -76,7 +76,7 @@ import { lightModeOn } from '../../redux/action';
       
         dispatch(dataAddRequest())
         setTimeout(()=>{
-          axios.get(`http://localhost:4000/classics/${id}`).then((res)=>{
+          axios.get(`https://backend-api-books.herokuapp.com/classics/${id}`).then((res)=>{
             setSingleData(res.data)
             dispatch(dataAddSuccess())
       }).catch(()=>{
