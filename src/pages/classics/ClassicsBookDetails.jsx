@@ -1,7 +1,5 @@
 import {
     Box,
-    chakra,
-  
     Container,
     Stack,
     Text,
@@ -13,67 +11,35 @@ import {
     SimpleGrid,
     StackDivider,
     useColorModeValue,
-    VisuallyHidden,
-    List,
-    ListItem,
   } from '@chakra-ui/react';
-  import './romance.css'
+import './romance.css'
 import { Tooltip } from '@chakra-ui/react';
 import { Div2 } from './styled/Div';
 import {AiFillHome} from 'react-icons/ai' 
 import { FaListOl } from 'react-icons/fa';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
+import { dataAddFailure, dataAddRequest, dataAddSuccess,  wsAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
-import { ButtonDet, Div, DivLoader } from './styled/Div';
-import { Input } from 'style-components';
+import { Div } from './styled/Div';
 import { MdExplore } from 'react-icons/md'; 
 import { nightModeOn } from '../../redux/action';
 import { MoonIcon } from '@chakra-ui/icons';
 import { lightModeOn } from '../../redux/action';
- import { SunIcon } from '@chakra-ui/icons';
-  export const ClassicsBookDetails=()=> {
+import { SunIcon } from '@chakra-ui/icons';
+export const ClassicsBookDetails=()=> {
     const [count,setCount]=useState(0);
     const [comment,setComment]=useState([])
-    const [singleData,setSingleData]=useState([])
-   
+    const [singleData,setSingleData]=useState([])  
     const {id}=useParams()
-    //console.log('id recieved',id)
     const dispatch=useDispatch()
     const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.data.nightmode)
     const navigate=useNavigate()
     var count2=0;
-    
-    // comments functions
-    const handleCChange=((e)=>{
-      const {id,value}=e.target;
-      setComment({...comment,
-      [id]:value
-      })
-    })
-    const handleComment=(()=>{
-      console.log(comment)
-     
-      fetch(`https://backend-api-books.herokuapp.com/romance/${id}`, {
-  method: 'PUT',
-  body: JSON.stringify({
-    comments:comment
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-    })
-    useEffect(()=>{
-      
+    useEffect(()=>{      
         dispatch(dataAddRequest())
         setTimeout(()=>{
           axios.get(`https://backend-api-books.herokuapp.com/classics/${id}`).then((res)=>{
@@ -82,10 +48,9 @@ import { lightModeOn } from '../../redux/action';
       }).catch(()=>{
           dispatch(dataAddFailure())
       })
-        },1000)
+        },0)
     
     },[])
-    console.log('recieved data',singleData)
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
       <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
@@ -154,12 +119,6 @@ import { lightModeOn } from '../../redux/action';
             fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
             {singleData.name}
           </Heading>
-          {/* <Text
-            color={useColorModeValue('gray.900', 'gray.400')}
-            fontWeight={300}
-            fontSize={'2xl'}>
-            $350.00 USD
-          </Text> */}
         </Box>
 
         <Stack
@@ -182,8 +141,6 @@ import { lightModeOn } from '../../redux/action';
             </Text>
           </VStack>
           <Box>
-           
-
           </Box>
           <Box>
        
@@ -204,9 +161,7 @@ import { lightModeOn } from '../../redux/action';
             transform: 'translateY(2px)',
             boxShadow: 'lg',
           }} onClick={(()=>{
-            if(count2==0){
-              // window.localStorage.setItem('wl',JSON.stringify(singleData))
-              //dispatch(wsAddRequest());
+            if(count2==0){              
               dispatch(wsAddSuccess(singleData))
               alert('Added to wish list successfully');
               count2++
@@ -218,9 +173,6 @@ import { lightModeOn } from '../../redux/action';
           })} >
           ADD TO WISHLIST
         </Button>
-
-
-
         <a href={singleData.download} download>   
         <Button
           rounded={'none'}
@@ -237,33 +189,12 @@ import { lightModeOn } from '../../redux/action';
 
           }} disabled={singleData.download==''}>
           Download
-        </Button>
-       
-        {/* <ButtonDet width={'100%'} height="40px">Download</ButtonDet> */}
-        
+        </Button>                     
         </a>
         <Stack direction="row" alignItems="center" justifyContent={'center'}>          
         </Stack>
       </Stack>
     </SimpleGrid>
-    {/* comments */}
-    {/* <Button color={'red'}>Comment...</Button>
-    <Stack display={'none'}>
-        <div style={{margin:"auto"}}>
-          <Input id='name' placeholder='Your name' onChange={handleCChange} width={'40%'} />
-          <textarea id='comment' onChange={handleCChange} placeholder='Type your comment...'></textarea>
-          <Button color={'red'} onClick={handleComment} > Submit</Button>
-        </div>
-      </Stack>
-      <div id='comment-box' >
-        <div id='comment-avatar'></div>
-        <div style={{color:"red"}} id='comment-text'>One of the best book i read so far , great story and writing</div>
-      </div> */}
-  </Container>}
-      
-      {/* comments section */}
-
-     
-     
+  </Container>} 
       </Div>
   }

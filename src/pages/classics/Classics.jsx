@@ -1,7 +1,6 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
 import '../classics/romance.css'
-import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
 import axios from "axios"
@@ -9,12 +8,11 @@ import { ClassicsCard } from "./ClassicsCard"
 import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
 import { ClassicsLoader } from "./ClassicsLoader"
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
-import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
+import { useNavigate,  } from "react-router-dom"
+import {MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
 import {FaListOl} from 'react-icons/fa'
-import Draggable from 'react-draggable';
-import { motion, useViewportScroll } from "framer-motion"
+import { motion} from "framer-motion"
 import { Tooltip } from '@chakra-ui/react'
 import {MdExplore} from 'react-icons/md'
 import {  useScroll } from "framer-motion"
@@ -23,10 +21,6 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
 
@@ -36,22 +30,15 @@ export const Classics=(()=>{
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
-    let [searchParams,setSearchParams]=useSearchParams();
-    const { scrollYProgress } = useScroll();
+  
      // all redux states
 
      const navigate=useNavigate()
      const loader=useSelector(state=>state?.data.loading)
      const bookSearch=useSelector(state=>state?.data.booksearch);
      const nightmode=useSelector(state=>state?.data.nightmode)
-
-
-    // Use effect to change the theme
-    
-
-    
+   
     useEffect(()=>{
-        setSearchParams({})
         dispatch(dataAddRequest())
         axios.get('https://backend-api-books.herokuapp.com/classics').then((res)=>{
             setData(res.data)
@@ -72,8 +59,7 @@ export const Classics=(()=>{
 
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
-        romanceBtn.style.display="none"
-        // setSearchParams({search:`${search}`})
+        romanceBtn.style.display="none"     
         axios.get(`https://backend-api-books.herokuapp.com/classics/search/${search}`).then((res)=>{
             setData(res.data)
             
@@ -84,14 +70,6 @@ export const Classics=(()=>{
             navigate('/ItemnotFound')
         }
     })
-    
-    // Adding data from localstorage to redux
-    // let lsd=JSON.parse(window.localStorage.getItem('wl'));
-    // const rdd=useSelector(state=>state.data.ws)
-    // if(lsd?.length>rdd?.length){
-    //     dispatch(wsAddSuccess(lsd))
-    // }
-   
     return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<ClassicsLoader/>:<div > 
          
@@ -140,15 +118,9 @@ export const Classics=(()=>{
            
             </div>
            <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
-        </Stack>
-        {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
+        </Stack>     
         </div>
-
-
-        {/* circle indicator */}
       
-
-         
          {/* Menu button */}
       
     <Stack marginRight={{lg:"95%",md:"85%",sm:"85%",base:"85%"}}  >   
@@ -175,14 +147,7 @@ export const Classics=(()=>{
    </MenuButtons>
 </Menu>
 </Stack>  
-
-
-
-
-
-     
-  
-        
+               {/* all books       */}
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
             
@@ -205,13 +170,3 @@ export const Classics=(()=>{
     
     
 })
-
-// scrolling indicator function
-function Scroll() {
-    const { scrollYProgress } = useScroll();
-    
-    return (
-      <motion.div style={{ scaleX: scrollYProgress }} />  
-    )
-  }
-  
