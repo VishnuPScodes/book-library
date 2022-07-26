@@ -1,20 +1,18 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
 import '../Romance/romance.css'
-import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
 import axios from "axios"
 import { RomanceCard } from "./RomanceCard"
 import { useDispatch ,useSelector} from "react-redux"
-import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
+import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn } from "../../redux/action"
 import { RomanceLoader } from "./RomanceLoader"
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
-import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
+import {  useNavigate, useSearchParams } from "react-router-dom"
+import {MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
 import {FaListOl} from 'react-icons/fa'
-import Draggable from 'react-draggable';
-import { motion, useViewportScroll } from "framer-motion"
+import { motion } from "framer-motion"
 import { Tooltip } from '@chakra-ui/react'
 import {MdExplore} from 'react-icons/md'
 import {  useScroll } from "framer-motion"
@@ -23,13 +21,8 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
-import Footer from "../../components/footer/Footer"
 
 export const Romance=(()=>{
     const [count,setCount]=useState(0);
@@ -37,22 +30,12 @@ export const Romance=(()=>{
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
-    let [searchParams,setSearchParams]=useSearchParams();
-    const { scrollYProgress } = useScroll();
      // all redux states
-
      const navigate=useNavigate()
      const loader=useSelector(state=>state?.data.loading)
      const bookSearch=useSelector(state=>state?.data.booksearch);
-     const nightmode=useSelector(state=>state?.data.nightmode)
-
-
-    // Use effect to change the theme
-    
-
-    
+     const nightmode=useSelector(state=>state?.data.nightmode) 
     useEffect(()=>{
-        setSearchParams({})
         dispatch(dataAddRequest())
         axios.get('https://backend-api-books.herokuapp.com/romance').then((res)=>{
             setData(res.data)
@@ -74,7 +57,6 @@ export const Romance=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
-        // setSearchParams({search:`${search}`})
         axios.get(`hhttps://backend-api-books.herokuapp.com/romance/search/${search}`).then((res)=>{
             setData(res.data)
             
@@ -84,15 +66,7 @@ export const Romance=(()=>{
         if(data.length==0){
             navigate('/ItemnotFound')
         }
-    })
-    
-    // Adding data from localstorage to redux
-    // let lsd=JSON.parse(window.localStorage.getItem('wl'));
-    // const rdd=useSelector(state=>state.data.ws)
-    // if(lsd?.length>rdd?.length){
-    //     dispatch(wsAddSuccess(lsd))
-    // }
-   
+    })  
     return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<RomanceLoader/>:<div > 
          
@@ -142,14 +116,7 @@ export const Romance=(()=>{
             </div>
            <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
         </Stack>
-        {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
-        </div>
-
-
-        {/* circle indicator */}
-      
-
-         
+        </div>        
          {/* Menu button */}
       
     <Stack marginRight={{lg:"95%",md:"85%",sm:"85%",base:"85%"}}  >   
@@ -176,13 +143,6 @@ export const Romance=(()=>{
    </MenuButtons>
 </Menu>
 </Stack>  
-
-
-
-
-
-     
-  
         
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
@@ -201,18 +161,8 @@ export const Romance=(()=>{
        
     
     </div>}  
-   {/* // <Footer/> */}
+
     </Div>
     
     
 })
-
-// scrolling indicator function
-function Scroll() {
-    const { scrollYProgress } = useScroll();
-    
-    return (
-      <motion.div style={{ scaleX: scrollYProgress }} />  
-    )
-  }
-  

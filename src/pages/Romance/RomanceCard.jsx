@@ -23,9 +23,6 @@ export const RomanceCard=({name,image,rating})=>{
   
         <Box p='6'>
           <Box display='flex' alignItems='baseline'>
-            {/* <Badge borderRadius='full' px='2' colorScheme='teal'>
-              New
-            </Badge> */}
             <Box
               color='gray.500'
               fontWeight='semibold'
@@ -47,15 +44,6 @@ export const RomanceCard=({name,image,rating})=>{
           >
             {name}
           </Box>
-         
-  
-          {/* <Box>
-           
-            <Box as='span' color='gray.600' fontSize='sm'>
-              / wk
-            </Box>
-          </Box>
-   */}
           <Box display='flex' mt='2' alignItems='center'>
             {Array(5)
               .fill('')
@@ -65,9 +53,6 @@ export const RomanceCard=({name,image,rating})=>{
                   color={i < rating ? 'red' : 'gray.300'}
                 />
               ))}
-            {/* <Box as='span' ml='2' color='gray.600' fontSize='sm'>
-              {property.reviewCount} reviews
-            </Box> */}
           </Box>
         </Box>
       </Box>

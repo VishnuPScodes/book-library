@@ -2,10 +2,7 @@
 import { Grid, GridItem, Heading, Stack } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import "./home.css"
-import Draggable from 'react-draggable';
-import { useSelector } from "react-redux";
 export const Home=(()=>{
-    const reduxData=useSelector(state=>state.data.ws);
     let lcdata=JSON.parse(window.localStorage.getItem('wl'));
     if(lcdata==null){
         window.localStorage.setItem('wl',JSON.stringify([]))
