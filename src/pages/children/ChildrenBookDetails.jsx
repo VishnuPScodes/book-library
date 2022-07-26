@@ -22,7 +22,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch ,useSelector} from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
+import { dataAddFailure, dataAddRequest, dataAddSuccess,wsAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
 import { Div } from './styled/Div';
 import { MdExplore } from 'react-icons/md'; 
