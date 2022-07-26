@@ -21,7 +21,7 @@ Javascript,HTML,css,MongoDB,React,Chakra-ui,styled-components,Express js,Postman
 
 ## Screenshots
 
-![App Screenshot](https://miro.medium.com/max/1400/1*Pa5N7FXZMbjvndyTBl3bSQ.png)
+![App Screenshot](https://miro.medium.com/max/1400/1*XDiJYNyPDhTSoVUYPdwKvw.png)
 ![App Screenshot](https://miro.medium.com/max/1400/1*Pa5N7FXZMbjvndyTBl3bSQ.png)
 ![App Screenshot](https://miro.medium.com/max/1400/1*pL0qjnAShDfc_kaY0e9YFQ.png)
 ![App Screenshot](https://miro.medium.com/max/1400/1*nXY21npkI48ds0f-gajYhg.png)
