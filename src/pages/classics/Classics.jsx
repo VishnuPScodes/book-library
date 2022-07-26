@@ -12,10 +12,8 @@ import { useNavigate,  } from "react-router-dom"
 import {MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
 import {FaListOl} from 'react-icons/fa'
-import { motion} from "framer-motion"
 import { Tooltip } from '@chakra-ui/react'
 import {MdExplore} from 'react-icons/md'
-import {  useScroll } from "framer-motion"
 import {
     Menu,
     MenuButton,
@@ -30,14 +28,11 @@ export const Classics=(()=>{
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
-  
      // all redux states
-
      const navigate=useNavigate()
      const loader=useSelector(state=>state?.data.loading)
      const bookSearch=useSelector(state=>state?.data.booksearch);
      const nightmode=useSelector(state=>state?.data.nightmode)
-   
     useEffect(()=>{
         dispatch(dataAddRequest())
         axios.get('https://backend-api-books.herokuapp.com/classics').then((res)=>{
@@ -49,7 +44,6 @@ export const Classics=(()=>{
             dispatch(dataAddFailure())
         })
     },[])
-    
     const handleInput=((e)=>{
         console.log('yes')
         let romanceBtn=document.getElementById('submit-romance')
@@ -83,7 +77,7 @@ export const Classics=(()=>{
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })} marginTop={'5px'} marginRight={'20px'} id="explore-y-btn"><MdExplore  /></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id="explore-y-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           <Div2 theme={nightmode}>  
@@ -92,7 +86,7 @@ export const Classics=(()=>{
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-btn'><FaListOl/></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id='wishlist-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
         

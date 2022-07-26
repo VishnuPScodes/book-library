@@ -4,6 +4,6 @@ import { useSelector } from "react-redux"
 export const ClassicsLoader=(()=>{
     const nightmode=useSelector(state=>state.nightmode)
     return <DivLoader theme={nightmode}>
-        <Heading color={'yellow'} >Welcome To Classic Novels Section🥰 </Heading>
+        <Heading color={'yellow'} >Welcome To Classic Novels Section 😀</Heading>
     </DivLoader>
 })
