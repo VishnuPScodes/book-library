@@ -37,6 +37,7 @@ export const DivLoader=styled.div`
   //  border: 1px solid black;
     height: 575px;
     width: 100%;
+   
     color: ${(prop)=>
 prop.theme==true?"white":"black"
 };

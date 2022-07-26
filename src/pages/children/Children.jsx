@@ -57,7 +57,7 @@ export const Children=(()=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
-            },1500)
+            },500)
         }).catch(()=>{
             dispatch(dataAddFailure())
         })
