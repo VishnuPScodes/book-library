@@ -90,7 +90,7 @@ export const Children=(()=>{
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })} marginTop={'5px'} marginRight={'20px'} id="explore-btn"><MdExplore  /></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id="explore-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           <Div2 theme={nightmode}>  
@@ -99,7 +99,7 @@ export const Children=(()=>{
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-btn'><FaListOl/></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id='wishlist-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
         

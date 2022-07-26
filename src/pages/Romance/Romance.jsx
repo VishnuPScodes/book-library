@@ -68,8 +68,7 @@ export const Romance=(()=>{
         }
     })  
     return  <Div id="main-romance" theme={nightmode} >   
-        {loader==true?<RomanceLoader/>:<div > 
-         
+        {loader==true?<RomanceLoader/>:<div >         
             <div id="header-pos" >  
         <Heading display={'flex'}  textAlign={'center'}>    <div onClick={(()=>{
             navigate('/')
@@ -80,7 +79,7 @@ export const Romance=(()=>{
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })} marginTop={'5px'} marginRight={'20px'} id="explore-r-btn"><MdExplore  /></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id="explore-r-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           <Div2 theme={nightmode}>  
@@ -89,7 +88,7 @@ export const Romance=(()=>{
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-r-btn'><FaListOl/></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id='wishlist-r-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
         

@@ -1,5 +1,5 @@
 
-import "../Children/romance.css"
+import "./romance.css"
 import { Audio ,BallTriangle} from  'react-loader-spinner'
 import { Stack } from "@chakra-ui/react"
 import { useSelector } from "react-redux"

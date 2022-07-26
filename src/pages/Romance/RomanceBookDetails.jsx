@@ -55,7 +55,8 @@ export const RomanceBookDetails=()=> {
       <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
         })} id="home-r-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
-        <div id='romance-d-left-icons'>
+         </div>
+         {/* <div id='romance-d-left-icons'>
          <div style={{marginRight:"8%"}}>
         <Div2  theme={nightmode}> 
         <Tooltip label='Explore'>
@@ -92,8 +93,7 @@ export const RomanceBookDetails=()=> {
             
         })}>{nightmode==true?<MoonIcon/>:<SunIcon/> }</Button></Div2>
          </Tooltip> </div>
-        </div>  </div>
-    
+        </div>  */}
      
     <SimpleGrid
       columns={{ base: 1, lg: 2 }}

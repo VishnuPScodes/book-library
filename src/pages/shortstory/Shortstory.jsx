@@ -83,7 +83,7 @@ export const Shortstory=(()=>{
             dispatch(dataAddRequest())
             navigate('/Explore')
             
-        })} marginTop={'5px'} marginRight={'20px'} id="explore-s-btn"><MdExplore  /></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id="explore-s-btn"><MdExplore  /></Button>
           </Tooltip>
           </Div2>
           <Div2 theme={nightmode}>  
@@ -92,7 +92,7 @@ export const Shortstory=(()=>{
             dispatch(dataAddRequest())
             navigate('/Wishlist')
             
-        })} marginTop={'5px'} marginRight={'20px'} id='wishlist-s-btn'><FaListOl/></Button>
+        })} marginTop={'5px'} marginRight={'2%'} id='wishlist-s-btn'><FaListOl/></Button>
          </Tooltip>
          </Div2>
         

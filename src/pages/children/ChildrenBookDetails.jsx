@@ -57,44 +57,7 @@ import { MoonIcon } from '@chakra-ui/icons';
       <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
         })} id="home-romance" style={{marginLeft:"1.2%"}}><AiFillHome  size={'40px'} /></div> 
-        <div id='romance-d-left-icons'>
-         <div style={{marginRight:"8%"}}>
-        <Div2  theme={nightmode}> 
-        <Tooltip label='Explore'>
-        <Button  onClick={(()=>{
-            dispatch(dataAddRequest())
-            navigate('/Explore')
-            
-        })}  id="explore-btn"><MdExplore  /></Button>
-          </Tooltip>
-          </Div2>
-          </div>
-          <div style={{marginRight:"8%"}}>
-          <Div2 theme={nightmode}>  
-        <Tooltip label='Wish list'> 
-        <Button onClick={(()=>{
-            dispatch(dataAddRequest())
-            navigate('/Wishlist')
-            
-        })}  id='wishlist-b-btn'><FaListOl/></Button>
-         </Tooltip>
-         </Div2>
-         </div> 
-         <div style={{marginRight:"8%"}}>
-         <Tooltip label='Night mode'> 
-         <Div2  theme={nightmode}><Button  onClick={(()=>{
-            setCount(count+1);
-            if(count==0){
-               dispatch(nightModeOn())
-            }
-            else{
-                dispatch(lightModeOn())
-                setCount(0)
-            }
-            
-        })}>{nightmode==true?<MoonIcon/>:<SunIcon/> }</Button></Div2>
-         </Tooltip> </div>
-        </div>  </div>
+   </div>
     
      
     <SimpleGrid
