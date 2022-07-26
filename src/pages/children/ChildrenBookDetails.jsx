@@ -1,7 +1,5 @@
 import {
     Box,
-    chakra,
-  
     Container,
     Stack,
     Text,
@@ -13,9 +11,7 @@ import {
     SimpleGrid,
     StackDivider,
     useColorModeValue,
-    VisuallyHidden,
-    List,
-    ListItem,
+
   } from '@chakra-ui/react';
   import '../children/romance.css'
 import { Tooltip } from '@chakra-ui/react';
@@ -24,14 +20,11 @@ import {AiFillHome} from 'react-icons/ai'
 import { FaListOl } from 'react-icons/fa';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { MdLocalShipping } from 'react-icons/md';
 import { useDispatch ,useSelector} from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { dataAddFailure, dataAddRequest, dataAddSuccess, wsAddRequest, wsAddSuccess } from '../../redux/action';
+import { dataAddFailure, dataAddRequest, dataAddSuccess } from '../../redux/action';
 import { DetailsLoader } from './DetailsLoader';
-import { ButtonDet, Div, DivLoader } from './styled/Div';
-import { Input } from 'style-components';
+import { Div } from './styled/Div';
 import { MdExplore } from 'react-icons/md'; 
 import { nightModeOn } from '../../redux/action';
 import { lightModeOn } from '../../redux/action';
@@ -39,7 +32,7 @@ import { MoonIcon } from '@chakra-ui/icons';
  import { SunIcon } from '@chakra-ui/icons';
   export const ChildrenBookDetails=()=> {
     const [count,setCount]=useState(0);
-    const [comment,setComment]=useState([])
+   
     const [singleData,setSingleData]=useState([])
     
     const {id}=useParams()
@@ -48,43 +41,18 @@ import { MoonIcon } from '@chakra-ui/icons';
     const loader=useSelector(state=>state.data.loading)
     const nightmode=useSelector(state=>state.data.nightmode)
     var count2=0;
-    
-    // comments functions
-    const handleCChange=((e)=>{
-      const {id,value}=e.target;
-      setComment({...comment,
-      [id]:value
-      })
-    })
-    const handleComment=(()=>{
-      console.log(comment)
-     
-      fetch(`https://backend-api-books.herokuapp.com/children/${id}`, {
-  method: 'PUT',
-  body: JSON.stringify({
-    comments:comment
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-    })
-    useEffect(()=>{
-      
+    useEffect(()=>{     
         dispatch(dataAddRequest())
         setTimeout(()=>{
-          axios.get(`https://backend-api-books.herokuapp.com/children/${id}`).then((res)=>{
-            setSingleData(res.data)
-            dispatch(dataAddSuccess())
+        axios.get(`https://backend-api-books.herokuapp.com/children/${id}`).then((res)=>{
+        setSingleData(res.data)
+        dispatch(dataAddSuccess())
       }).catch(()=>{
-          dispatch(dataAddFailure())
+        dispatch(dataAddFailure())
       })
-        },1000)
-    
+      },0)
     },[])
-    console.log('recieved data',singleData)
+
     return <Div id="main-romance" theme={nightmode}> {loader==true?<DetailsLoader/>: <Container maxW={'7xl'}>
       <div id='all-icons'>    <div onClick={(()=>{
             navigate('/')
@@ -153,12 +121,7 @@ import { MoonIcon } from '@chakra-ui/icons';
             fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
             {singleData.name}
           </Heading>
-          {/* <Text
-            color={useColorModeValue('gray.900', 'gray.400')}
-            fontWeight={300}
-            fontSize={'2xl'}>
-            $350.00 USD
-          </Text> */}
+      
         </Box>
 
         <Stack
@@ -204,8 +167,7 @@ import { MoonIcon } from '@chakra-ui/icons';
             boxShadow: 'lg',
           }} onClick={(()=>{
             if(count2==0){
-              // window.localStorage.setItem('wl',JSON.stringify(singleData))
-              //dispatch(wsAddRequest());
+             
               dispatch(wsAddSuccess(singleData))
               alert('Added to wish list successfully');
               count2++
@@ -238,29 +200,17 @@ import { MoonIcon } from '@chakra-ui/icons';
           Download
         </Button>
        
-        {/* <ButtonDet width={'100%'} height="40px">Download</ButtonDet> */}
+      
         
         </a>
         <Stack direction="row" alignItems="center" justifyContent={'center'}>          
         </Stack>
       </Stack>
     </SimpleGrid>
-    {/* comments */}
-    {/* <Button color={'red'}>Comment...</Button>
-    <Stack display={'none'}>
-        <div style={{margin:"auto"}}>
-          <Input id='name' placeholder='Your name' onChange={handleCChange} width={'40%'} />
-          <textarea id='comment' onChange={handleCChange} placeholder='Type your comment...'></textarea>
-          <Button color={'red'} onClick={handleComment} > Submit</Button>
-        </div>
-      </Stack>
-      <div id='comment-box' >
-        <div id='comment-avatar'></div>
-        <div style={{color:"brown"}} id='comment-text'>One of the best book i read so far , great story and writing</div>
-      </div> */}
+   
   </Container>}
       
-      {/* comments section */}
+    
 
      
      
