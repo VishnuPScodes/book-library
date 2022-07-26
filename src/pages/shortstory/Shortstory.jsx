@@ -1,7 +1,6 @@
 
 import { Stack,Heading,Input ,Button} from "@chakra-ui/react"
 import '../shortstory/shortstory.css'
-import { Box ,Image, Badge, } from '@chakra-ui/react'
 import {AiFillHome} from 'react-icons/ai'
 import {  useEffect, useState } from "react"
 import axios from "axios"
@@ -10,10 +9,9 @@ import { useDispatch ,useSelector} from "react-redux"
 import { dataAddFailure, dataAddRequest, dataAddSuccess, lightModeOn, nightModeOn, wsAddSuccess } from "../../redux/action"
 import { ShortStoryLoader } from "./ShortStoryLoader"
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
-import {ChevronDownIcon,MoonIcon,SunIcon} from '@chakra-ui/icons'
+import {MoonIcon,SunIcon} from '@chakra-ui/icons'
 import {ImBooks} from 'react-icons/im'
 import {FaListOl} from 'react-icons/fa'
-import Draggable from 'react-draggable';
 import { motion, useViewportScroll } from "framer-motion"
 import { Tooltip } from '@chakra-ui/react'
 import {MdExplore} from 'react-icons/md'
@@ -23,10 +21,6 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
   } from '@chakra-ui/react'
 import { Div, MenuButtons,Div2, Div3 } from "./styled/Div"
 
@@ -36,8 +30,7 @@ export const Shortstory=(()=>{
     const [search,setSearch]=useState('');
     const dispatch=useDispatch()
     const [data,setData]=useState([])
-    let [searchParams,setSearchParams]=useSearchParams();
-    const { scrollYProgress } = useScroll();
+    let [setSearchParams]=useSearchParams();
      // all redux states
 
      const navigate=useNavigate()
@@ -45,13 +38,7 @@ export const Shortstory=(()=>{
      const bookSearch=useSelector(state=>state?.data.booksearch);
      const nightmode=useSelector(state=>state?.data.nightmode)
 
-
-    // Use effect to change the theme
-    
-
-    
-    useEffect(()=>{
-        setSearchParams({})
+    useEffect(()=>{      
         dispatch(dataAddRequest())
         axios.get('https://backend-api-books.herokuapp.com/shortstory').then((res)=>{
             setData(res.data)
@@ -64,7 +51,7 @@ export const Shortstory=(()=>{
     },[])
     
     const handleInput=((e)=>{
-        console.log('yes')
+       
         let romanceBtn=document.getElementById('submit-romance')
         romanceBtn.style.display="block"
         setSearch(e.target.value);
@@ -73,7 +60,6 @@ export const Shortstory=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
-        // setSearchParams({search:`${search}`})
         axios.get(`https://backend-api-books.herokuapp.com/shortstory/search/${search}`).then((res)=>{
             setData(res.data)
             
@@ -84,14 +70,6 @@ export const Shortstory=(()=>{
             navigate('/ItemnotFound')
         }
     })
-    
-    // Adding data from localstorage to redux
-    // let lsd=JSON.parse(window.localStorage.getItem('wl'));
-    // const rdd=useSelector(state=>state.data.ws)
-    // if(lsd?.length>rdd?.length){
-    //     dispatch(wsAddSuccess(lsd))
-    // }
-   
     return  <Div id="main-romance" theme={nightmode} >   
         {loader==true?<ShortStoryLoader/>:<div > 
          
@@ -141,12 +119,7 @@ export const Shortstory=(()=>{
             </div>
            <div>{bookSearch==true?<div>Searching...</div>:click==1?<div>{data.length} books found</div>:""}</div>
         </Stack>
-        {/* <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} /> */}
         </div>
-
-
-        {/* circle indicator */}
-      
 
          
          {/* Menu button */}
@@ -174,14 +147,8 @@ export const Shortstory=(()=>{
   </MenuList>
    </MenuButtons>
 </Menu>
-</Stack>  
-
-
-
-
-
-     
-  
+</Stack>    
+         {/* all books */}
         
         <div style={{display:"flex",flexWrap:"wrap"}}>
         {data.length==0?navigate('/ItemnotFound'): data.map((e)=>{
@@ -205,13 +172,3 @@ export const Shortstory=(()=>{
     
     
 })
-
-// scrolling indicator function
-function Scroll() {
-    const { scrollYProgress } = useScroll();
-    
-    return (
-      <motion.div style={{ scaleX: scrollYProgress }} />  
-    )
-  }
-  

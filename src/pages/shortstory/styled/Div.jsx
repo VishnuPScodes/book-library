@@ -3,18 +3,10 @@
 
 
 import styled from "styled-components"
-import { useSelector } from "react-redux";
-import urlencoded from "body-parser/lib/types/urlencoded";
-// const theme=useSelector((state=>state.nightmode));
-
-
-// button for book details page
-
 
 
 export const ButtonDet=styled.button`
 
-  //  border: 1px solid black;
   width: '500px';
   height: '400px';
     color: ${(prop)=>
