@@ -44,12 +44,17 @@ export const ShortStoryBookDetails=()=> {
       
         dispatch(dataAddRequest())
       
-          axios.get(`https://backend-api-books.herokuapp.com/shortstory/${id}`).then((res)=>{
-            setSingleData(res.data)
-            dispatch(dataAddSuccess())
-      }).catch(()=>{
-          dispatch(dataAddFailure())
-      })
+          axios
+            .get(
+              `https://uninterested-elk-cardigan.cyclic.app/shortstory/${id}`
+            )
+            .then((res) => {
+              setSingleData(res.data);
+              dispatch(dataAddSuccess());
+            })
+            .catch(() => {
+              dispatch(dataAddFailure());
+            });
    
     
     },[])

@@ -42,12 +42,15 @@ export const ClassicsBookDetails=()=> {
     useEffect(()=>{      
         dispatch(dataAddRequest())
         setTimeout(()=>{
-          axios.get(`https://backend-api-books.herokuapp.com/classics/${id}`).then((res)=>{
-            setSingleData(res.data)
-            dispatch(dataAddSuccess())
-      }).catch(()=>{
-          dispatch(dataAddFailure())
-      })
+          axios
+            .get(`https://uninterested-elk-cardigan.cyclic.app/classics/${id}`)
+            .then((res) => {
+              setSingleData(res.data);
+              dispatch(dataAddSuccess());
+            })
+            .catch(() => {
+              dispatch(dataAddFailure());
+            });
         },0)
     
     },[])

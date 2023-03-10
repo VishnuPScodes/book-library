@@ -72,7 +72,7 @@
 }
 #comment-text{
   margin-left: 20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Poppins';
   font-weight: 600;
 
 }
@@ -82,4 +82,7 @@
 #romance-d-left-icons{
   display: flex;
   margin-left: 78%;
+}
+body{
+  font-family: 'Poppins';
 }

@@ -41,12 +41,15 @@ export const RomanceBookDetails=()=> {
       
         dispatch(dataAddRequest())
        
-          axios.get(`https://backend-api-books.herokuapp.com/romance/${id}`).then((res)=>{
-            setSingleData(res.data)
-            dispatch(dataAddSuccess())
-      }).catch(()=>{
-          dispatch(dataAddFailure())
-      })
+          axios
+            .get(`https://uninterested-elk-cardigan.cyclic.app/romance/${id}`)
+            .then((res) => {
+              setSingleData(res.data);
+              dispatch(dataAddSuccess());
+            })
+            .catch(() => {
+              dispatch(dataAddFailure());
+            });
       
     
     },[])

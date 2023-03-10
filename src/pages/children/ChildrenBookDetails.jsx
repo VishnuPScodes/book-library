@@ -44,12 +44,15 @@ import { MoonIcon } from '@chakra-ui/icons';
     useEffect(()=>{     
         dispatch(dataAddRequest())
         setTimeout(()=>{
-        axios.get(`https://backend-api-books.herokuapp.com/children/${id}`).then((res)=>{
-        setSingleData(res.data)
-        dispatch(dataAddSuccess())
-      }).catch(()=>{
-        dispatch(dataAddFailure())
-      })
+        axios
+          .get(`https://uninterested-elk-cardigan.cyclic.app/children/${id}`)
+          .then((res) => {
+            setSingleData(res.data);
+            dispatch(dataAddSuccess());
+          })
+          .catch(() => {
+            dispatch(dataAddFailure());
+          });
       },0)
     },[])
 

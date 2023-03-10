@@ -40,7 +40,7 @@ export const Shortstory=(()=>{
 
     useEffect(()=>{      
         dispatch(dataAddRequest())
-        axios.get('https://backend-api-books.herokuapp.com/shortstory').then((res)=>{
+        axios.get('https://uninterested-elk-cardigan.cyclic.app/shortstory').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -60,7 +60,7 @@ export const Shortstory=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
-        axios.get(`https://backend-api-books.herokuapp.com/shortstory/search/${search}`).then((res)=>{
+        axios.get(`https://uninterested-elk-cardigan.cyclic.app/shortstory/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{

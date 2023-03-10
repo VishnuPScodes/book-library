@@ -37,14 +37,17 @@ export const Romance=(()=>{
      const nightmode=useSelector(state=>state?.data.nightmode) 
     useEffect(()=>{
         dispatch(dataAddRequest())
-        axios.get('https://backend-api-books.herokuapp.com/romance').then((res)=>{
-            setData(res.data)
-            setTimeout(()=>{
-                dispatch(dataAddSuccess())
-            },500)
-        }).catch(()=>{
-            dispatch(dataAddFailure())
-        })
+        axios
+          .get("https://uninterested-elk-cardigan.cyclic.app/romance")
+          .then((res) => {
+            setData(res.data);
+            setTimeout(() => {
+              dispatch(dataAddSuccess());
+            }, 500);
+          })
+          .catch(() => {
+            dispatch(dataAddFailure());
+          });
     },[])
     
     const handleInput=((e)=>{
@@ -57,12 +60,16 @@ export const Romance=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"
-        axios.get(`hhttps://backend-api-books.herokuapp.com/romance/search/${search}`).then((res)=>{
-            setData(res.data)
-            
-        }).then(()=>{
-            setClick(true)
-        })
+        axios
+          .get(
+            `https://uninterested-elk-cardigan.cyclic.app/romance/search/${search}`
+          )
+          .then((res) => {
+            setData(res.data);
+          })
+          .then(() => {
+            setClick(true);
+          });
         if(data.length==0){
             navigate('/ItemnotFound')
         }

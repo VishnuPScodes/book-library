@@ -52,15 +52,20 @@ export const ItemnotFound=(()=>{
   const handleSubmit=(()=>{
    console.log('data',data)
     dispatch(dataAddRequest());
-    axios.post('https://backend-api-books.herokuapp.com/posts',data).then(()=>{
-        dispatch(dataAddSuccess())
-    }).then(()=>{
-      alert('Data added successfully')
-    })
-    .catch(()=>{
-      dispatch(dataAddFailure())
-      alert('Sorry unable to submit your request at the moment ,please try later')
-    })
+    axios
+      .post("https://uninterested-elk-cardigan.cyclic.app/posts", data)
+      .then(() => {
+        dispatch(dataAddSuccess());
+      })
+      .then(() => {
+        alert("Data added successfully");
+      })
+      .catch(() => {
+        dispatch(dataAddFailure());
+        alert(
+          "Sorry unable to submit your request at the moment ,please try later"
+        );
+      });
   })
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)

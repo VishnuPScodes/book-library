@@ -35,7 +35,7 @@ export const Classics=(()=>{
      const nightmode=useSelector(state=>state?.data.nightmode)
     useEffect(()=>{
         dispatch(dataAddRequest())
-        axios.get('https://backend-api-books.herokuapp.com/classics').then((res)=>{
+        axios.get('https://uninterested-elk-cardigan.cyclic.app/classics').then((res)=>{
             setData(res.data)
             setTimeout(()=>{
                 dispatch(dataAddSuccess())
@@ -54,7 +54,7 @@ export const Classics=(()=>{
     const handleSubmit=(()=>{
         let romanceBtn=document.getElementById('submit-romance');
         romanceBtn.style.display="none"     
-        axios.get(`https://backend-api-books.herokuapp.com/classics/search/${search}`).then((res)=>{
+        axios.get(`https://uninterested-elk-cardigan.cyclic.app/classics/search/${search}`).then((res)=>{
             setData(res.data)
             
         }).then(()=>{
