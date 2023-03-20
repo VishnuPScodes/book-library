@@ -1,11 +1,18 @@
 
 import styles from './home.module.css'
 import Fade from "react-reveal/Fade";
-
+import { Navbar } from '../../components/Navbar';
+import { useNavigate } from 'react-router-dom';
+import Pulse from "react-reveal/Pulse";
+import { Tooltip } from '@chakra-ui/react';
 export const Home=()=>{
+    const navigation=useNavigate();
     return (
       <div>
-        <div className={styles.heading}>Welcome to Book House</div>
+        <Navbar />
+        <Pulse>
+          <div className={styles.heading}>Welcome to Book House</div>
+        </Pulse>
         <div className={styles.description}>
           Book house is a platform where you can find your favourite book easy
           and free from our vast collection of books. Here the books are
@@ -63,7 +70,16 @@ export const Home=()=>{
               experience, leaving you feeling uplifted and emotionally
               fulfilled.
             </div>
-            <div className={styles.romance_button}>Read romance books</div>
+            <Tooltip label="Love stories provide emotional escape.">
+              <div
+                onClick={() => {
+                  navigation("/Romance");
+                }}
+                className={styles.romance_button}
+              >
+                Read romance books
+              </div>
+            </Tooltip>
           </div>
         </Fade>
         <Fade bottom>
@@ -78,7 +94,16 @@ export const Home=()=>{
               favorites or discovering new ones, children's books can offer a
               fun, nostalgic, and enriching reading experience
             </div>
-            <div className={styles.romance_button}>Read children's books</div>
+            <Tooltip label=" Offer life lessons and enjoyment for all ages.">
+              <div
+                className={styles.romance_button1}
+                onClick={() => {
+                  navigation("/children");
+                }}
+              >
+                Read children's books
+              </div>
+            </Tooltip>
           </div>
         </Fade>
         <Fade bottom>
@@ -89,7 +114,11 @@ export const Home=()=>{
               in a compact and concentrated form, making it a quick and easy way
               to explore different styles and gain new insights.
             </div>
-            <div className={styles.romance_button}>Read short stories</div>
+            <Tooltip label="Promote growth through diverse perspectives.">
+              <div className={styles.romance_button2} onClick={()=>{
+                navigation('/shortstory')
+              }}>Read short stories</div>
+            </Tooltip>
           </div>
         </Fade>
         <Fade bottom>
@@ -106,9 +135,17 @@ export const Home=()=>{
               classic books can be a way to gain a deeper appreciation for the
               evolution of literature and language over time.
             </div>
-            <div className={styles.romance_button}>Read classics</div>
+            <Tooltip label="Provides insights and enriches the experience.">
+              <div className={styles.romance_button3} onClick={()=>{
+                navigation('/classics')
+              }}>Read classics</div>
+            </Tooltip>
           </div>
         </Fade>
+        {/* <div className={styles.footer_cont}>
+          Footer
+          <div className={styles.footer_div}></div>
+        </div> */}
       </div>
     );
 }

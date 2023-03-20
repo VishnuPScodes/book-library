@@ -2,6 +2,13 @@
     display: none;
    
 }
+.navbar-1{
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  
+}
 #detailsLoader{
     margin: auto;
     margin-left: 200px;
