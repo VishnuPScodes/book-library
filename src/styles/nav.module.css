@@ -36,3 +36,23 @@ background-color: white;
   line-height: 60px;
   align-self: center;
 }
+.login{
+  border: 2px solid black;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  position: absolute;
+  right: 20px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: 1s;
+}
+.login:hover{
+  border-radius: 0px;
+  transition: 1s;
+  cursor: pointer;
+  
+}

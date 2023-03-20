@@ -21,5 +21,6 @@ export const Navbar=()=>{
     return <div className={ scrolled==false?styles.cont:styles.scrolled}>
         <AiFillBook className={styles.book_icon}  />
         <span className={styles.heading}>Book House</span>
+        <div className={styles.login}>Login</div>
     </div>
 }
